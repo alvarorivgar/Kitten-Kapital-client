@@ -8,6 +8,7 @@ import Home from './pages/Home';
 function App() {
   return (
     <div className="App">
+      <Navbar />
 
 
       <Routes>
@@ -16,7 +17,6 @@ function App() {
         <Route path='/login' element={<Login />} />
       </Routes>
 
-      <Navbar />
 
     </div>
   );
