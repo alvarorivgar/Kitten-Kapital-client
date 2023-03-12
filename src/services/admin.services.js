@@ -8,6 +8,10 @@ const createUserService = (user) => {
     return service.post("/admin/create-user", user)
 }
 
+const getAllUsersService = () => {
+    return service.get("/admin/users")
+}
+
 const deleteUserService = (user) => {
     return service.delete("/admin/:userId/delete", user)
 }
@@ -15,5 +19,6 @@ const deleteUserService = (user) => {
 export {
     createAdminService,
     createUserService,
+    getAllUsersService,
     deleteUserService
 }
