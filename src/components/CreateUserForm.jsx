@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 
 function CreateUserForm() {
   const navigate = useNavigate();
-  const { isLoggedIn, isAdmin } = useContext(AuthContext)
+  const { isLoggedIn, isAdmin, loggedUser } = useContext(AuthContext)
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [idNumber, setIdNumber] = useState("");
@@ -36,6 +36,7 @@ function CreateUserForm() {
       password2,
     };
 
+    
     try {
       
       await createUserService(newUser);
@@ -53,13 +54,14 @@ function CreateUserForm() {
       }
     }
   };
-
+  
+  console.log(loggedUser);
   return (
 
     
     <div>
       {/* only show the render if is logged like admin */}
-      {isLoggedIn === false && isAdmin === false ? <Navigate to="/login" />:
+      {isLoggedIn === false || isAdmin === false ? <Navigate to="/login" />:
         <div>
           <h3>Creatre User</h3>
           <form onSubmit={handleSubmit}>
