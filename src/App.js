@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import CreateAdminForm from './components/CreateAdminForm';
+import CreateUserForm from './components/CreateUserForm';
 import Navbar from './components/Navbar';
 import Login from './pages/auth/Login';
 import HomeAnon from './pages/HomeAnon';
@@ -13,6 +14,7 @@ function App() {
 
 
       <Routes>
+        <Route path='/admin/create-user' element={<CreateUserForm />} />
         <Route path="/" element={<HomeAnon />} />
         <Route path='/admin/create-admin' element={<CreateAdminForm />} />
         <Route path='/login' element={<Login />} />
