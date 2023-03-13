@@ -5,12 +5,9 @@ import { getUserService } from "../services/user.services";
 import { AuthContext } from "../context/auth.context";
 
 function Home() {
-  const { userId } = useParams();
-  const [user, setUser] = useState(null);
   const [isFetching, setIsFetching] = useState(true);
   const [accountList, setAccountList] = useState([]);
   const { loggedUser } = useContext(AuthContext);
-  console.log(loggedUser);
 
 
   useEffect(() => {
@@ -19,9 +16,7 @@ function Home() {
 
   const getData = async () => {
     try {
-      // const foundUser = await getUserService(userId);
-      // setUser(foundUser.data);
-      const accounts = await getCheckingAccountsService();
+      const accounts = await getCheckingAccountsService(loggedUser._id);
       setAccountList(accounts.data);
       setIsFetching(false);
     } catch (error) {
