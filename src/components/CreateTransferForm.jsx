@@ -119,7 +119,7 @@ function CreateTransferForm() {
                   </option>
                   {kittyAccountsList.map((eachAccount) => {
                     return (
-                      <option value={originAccount}>
+                      <option key={eachAccount._id} value={eachAccount._id}>
                         {eachAccount.accountName}
                       </option>
                     );

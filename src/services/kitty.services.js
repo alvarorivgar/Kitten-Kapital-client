@@ -8,10 +8,13 @@ const getKittyAccountsService = (userId) => {
     return service.get(`/kitty/${userId}/all`)
 }
 
-
+const getSingleKittyAccountDetailsService = (accountId) => {
+    return service.get(`/kitty/${accountId}/details`)
+}
 
 export {
     createKittyAccountService,
     getKittyAccountsService,
+    getSingleKittyAccountDetailsService
 
 }

@@ -8,4 +8,12 @@ const transferService = (newTransfer) => {
   return service.patch("/transaction/transfer", newTransfer);
 };
 
-export { createTransactionService, transferService };
+const getAccountTransactionsService = (accountId) => {
+  return service.get(`/transaction/${accountId}/all`);
+};
+
+export {
+  createTransactionService,
+  transferService,
+  getAccountTransactionsService,
+};

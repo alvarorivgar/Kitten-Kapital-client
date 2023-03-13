@@ -32,7 +32,7 @@ function Navbar() {
     if (loggedUser.role === "admin") { // Admin Navbar
       return (
         <div>
-          <NavLink to="/admin/user-search">User Search</NavLink>
+          <NavLink to="/admin/user-search">Client Search</NavLink>
           <NavLink to="/admin/create-user">New User</NavLink>
           <NavLink to="/">My clients</NavLink>
           <span onClick={handleLogout}>Log out</span>

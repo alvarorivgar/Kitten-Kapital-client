@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { getCheckingAccountsService } from "../services/checking.services";
 import { AuthContext } from "../context/auth.context";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [isFetching, setIsFetching] = useState(true);
@@ -36,11 +37,11 @@ function Home() {
       <div>
         {accountList.map((account) => {
           return (
-            <div key={account._id}>
+            <Link to={`/user/${account._id}/details`} key={account._id}>
               <p>{account.accountName}</p>
               <p>{account.balance / 100}€</p>
               <p>{account._id}</p>
-            </div>
+            </ Link>
           );
         })}
       </div>
