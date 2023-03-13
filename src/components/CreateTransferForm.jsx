@@ -4,7 +4,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { getCheckingAccountsService } from "../services/checking.services";
 import { getKittyAccountsService } from "../services/kitty.services";
-import { createTransactionService, transferService } from "../services/transfer.services";
+import {
+  createTransactionService,
+  transferService,
+} from "../services/transfer.services";
 
 function CreateTransferForm() {
   const navigate = useNavigate();
@@ -23,7 +26,7 @@ function CreateTransferForm() {
     setDestinationAccount(e.target.value);
   const handleAmountChange = (e) => setAmount(e.target.value);
   const handleSubjectChange = (e) => setSubject(e.target.value);
-  
+
   useEffect(() => {
     getData();
   }, []);
@@ -50,14 +53,12 @@ function CreateTransferForm() {
       amount: amount * 100,
       subject,
     };
-    
-    try {
-      
-      console.log(newTransfer);
-      await transferService(newTransfer)
-      await createTransactionService(newTransfer)
-      navigate("/user");
 
+    try {
+      console.log(newTransfer);
+      await transferService(newTransfer);
+      await createTransactionService(newTransfer);
+      navigate("/user");
     } catch (error) {
       console.log(error);
       // vamos a determinar el tipo de error que recibimos, y actuar diferente
@@ -84,14 +85,17 @@ function CreateTransferForm() {
               <h3>hola soy un user</h3>
               <label htmlFor="originAccount">
                 Origin Account:
-                <select name="originAccount" defaultValue="Select your origin Account" onChange={handleOriginAccountChange}>
-                <option value="Select your origin Account">Select your origin Account</option>
+                <select
+                  name="originAccount"
+                  defaultValue="Select your origin Account"
+                  onChange={handleOriginAccountChange}
+                >
+                  <option value="Select your origin Account">
+                    Select your origin Account
+                  </option>
                   {checkingAccountsList.map((eachAccount) => {
                     return (
-                      <option
-                        key={eachAccount._id}
-                        value={eachAccount._id} 
-                      >
+                      <option key={eachAccount._id} value={eachAccount._id}>
                         {eachAccount.accountName}
                       </option>
                     );
@@ -105,13 +109,17 @@ function CreateTransferForm() {
               <h3>hola soy un kitty</h3>
               <label htmlFor="originAccount">
                 Origin Account:
-                <select name="originAccount">
+                <select
+                  name="originAccount"
+                  defaultValue="Select your origin Account"
+                  onChange={handleOriginAccountChange}
+                >
+                  <option value="Select your origin Account">
+                    Select your origin Account
+                  </option>
                   {kittyAccountsList.map((eachAccount) => {
                     return (
-                      <option
-                        value={originAccount}
-                        onChangeCapture={handleOriginAccountChange}
-                      >
+                      <option value={originAccount}>
                         {eachAccount.accountName}
                       </option>
                     );
@@ -119,34 +127,34 @@ function CreateTransferForm() {
                 </select>
               </label>
             </div>
-          )}          
-              <label htmlFor="destinationAccount">Destination Account: </label>
-              <input
-                type="text"
-                name="destinationAccount"
-                value={destinationAccount}
-                onChange={handleDestinationAccountChange}
-              />
-              <br />
-              <label htmlFor="amount">Amount: </label>
-              <input
-                type="number"
-                name="amount"
-                value={amount}
-                onChange={handleAmountChange}
-              />
-              <br />
-              <label htmlFor="subject">Subject: </label>
-              <input
-                type="text"
-                name="subject"
-                value={subject}
-                onChange={handleSubjectChange}
-              />
-              <br />
-              {errorMessage !== "" ? <p>{errorMessage}</p> : null}
-              <br />
-              <button type="submit">Agregar</button>
+          )}
+          <label htmlFor="destinationAccount">Destination Account: </label>
+          <input
+            type="text"
+            name="destinationAccount"
+            value={destinationAccount}
+            onChange={handleDestinationAccountChange}
+          />
+          <br />
+          <label htmlFor="amount">Amount: </label>
+          <input
+            type="number"
+            name="amount"
+            value={amount}
+            onChange={handleAmountChange}
+          />
+          <br />
+          <label htmlFor="subject">Subject: </label>
+          <input
+            type="text"
+            name="subject"
+            value={subject}
+            onChange={handleSubjectChange}
+          />
+          <br />
+          {errorMessage !== "" ? <p>{errorMessage}</p> : null}
+          <br />
+          <button type="submit">Agregar</button>
         </form>
       )}
     </div>
