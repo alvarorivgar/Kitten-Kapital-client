@@ -6,13 +6,17 @@ import CreateTransferForm from "./components/CreateTransferForm";
 import CreateUserForm from "./components/CreateUserForm";
 import Navbar from "./components/Navbar";
 import SearchUsers from "./pages/admin/SearchUsers";
+import UserDetails from "./pages/admin/UserDetails";
 import Login from "./pages/auth/Login";
 import HomeAnon from "./pages/HomeAnon";
 import HomeLogged from "./pages/HomeLogged";
+import Profile from "./pages/Profile";
 
 function App() {
+
   return (
     <div className="App">
+
       <Navbar />
 
       <Routes>
@@ -20,9 +24,11 @@ function App() {
 
         <Route path="/admin/create-user" element={<CreateUserForm />} />
         <Route path="/admin/create-admin" element={<CreateAdminForm />} />
-        <Route path="/" element={<HomeAnon />} />
         <Route path="/admin/user-search" element={<SearchUsers />} />
+        <Route path="/admin/user-details/:userId" element={<UserDetails />} />
+        <Route path="/" element={<HomeAnon />} />
         <Route path="/user/" element={<HomeLogged />} />
+        <Route path="/user/profile" element={<Profile />} />
         <Route path="/create-account/:userId" element={<CreateAccountForm />} />
         <Route path="/transaction/create" element={<CreateTransferForm />} />
       </Routes>
