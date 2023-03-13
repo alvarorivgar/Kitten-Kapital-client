@@ -23,10 +23,7 @@ function CreateTransferForm() {
     setDestinationAccount(e.target.value);
   const handleAmountChange = (e) => setAmount(e.target.value);
   const handleSubjectChange = (e) => setSubject(e.target.value);
-
-  console.log(originAccount);
-  console.log(destinationAccount);
-
+  
   useEffect(() => {
     getData();
   }, []);
@@ -47,19 +44,19 @@ function CreateTransferForm() {
   // console.log(checkingAccountsList);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const newTransfer = {
       origin: originAccount,
       destination: destinationAccount,
       amount: amount * 100,
       subject,
     };
-
+    
     try {
-
-      await createTransactionService(newTransfer)
+      
+      console.log(newTransfer);
       await transferService(newTransfer)
-      navigate("/");
+      await createTransactionService(newTransfer)
+      navigate("/user");
 
     } catch (error) {
       console.log(error);
@@ -87,7 +84,8 @@ function CreateTransferForm() {
               <h3>hola soy un user</h3>
               <label htmlFor="originAccount">
                 Origin Account:
-                <select name="originAccount" onChange={handleOriginAccountChange}>
+                <select name="originAccount" defaultValue="Select your origin Account" onChange={handleOriginAccountChange}>
+                <option value="Select your origin Account">Select your origin Account</option>
                   {checkingAccountsList.map((eachAccount) => {
                     return (
                       <option
