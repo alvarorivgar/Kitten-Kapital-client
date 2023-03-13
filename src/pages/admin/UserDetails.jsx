@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getCheckingAccountsService } from "../../services/checking.services";
+import { getKittyAccountsService } from "../../services/kitty.services";
 import { getUserService } from "../../services/user.services";
 
 function UserDetails() {
@@ -16,7 +17,7 @@ function UserDetails() {
   const getData = async () => {
     try {
       const foundUser = await getUserService(userId);
-      const foundAccounts = await getCheckingAccountsService(userId);
+      const foundAccounts = await getCheckingAccountsService(userId) || await getKittyAccountsService(userId);
       setUser(foundUser.data);
       setAccounts(foundAccounts.data);
       setIsFetching(false);
