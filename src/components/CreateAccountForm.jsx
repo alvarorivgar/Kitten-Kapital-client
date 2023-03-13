@@ -8,8 +8,7 @@ import { createKittyAccountService } from "../services/kitty.services";
 
 function CreateAccountForm() {
   const navigate = useNavigate();
-  const { isLoggedIn, isAdmin, loggedUser, isUser, isKitty } =
-    useContext(AuthContext);
+  const { isLoggedIn, isAdmin, loggedUser } = useContext(AuthContext);
   const { userId } = useParams();
   const [errorMessage, setErrorMessage] = useState("");
   const [accountName, setAccountName] = useState("");
@@ -38,18 +37,15 @@ function CreateAccountForm() {
       const foundUser = await getUserService(userId);
       if (foundUser.data.role === "user") {
         await createCheckingAccountService(userId, newAccount);
-        // navigate(`/admin/${userId}/details`)
-      }else{
+      } else {
         await createKittyAccountService(userId, newAccount);
-        // navigate(`/admin/${userId}/details`)
       }
+
+      loggedUser.role === "admin"
+        ? navigate("/admin/my-clients")
+        : navigate("/user");
     } catch (error) {
-      console.log(error);
-      // vamos a determinar el tipo de error que recibimos, y actuar diferente
-      console.log(error.response.status); // codigo de error enviado
-      console.log(error.response.data.errorMessage); // el mensaje de error que dio el fallo
       if (error.response.status === 400) {
-        // mostramos al usuario como solventar el problema
         setErrorMessage(error.response.data.errorMessage);
       } else {
         navigate("/error");
