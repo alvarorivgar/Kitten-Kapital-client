@@ -1,7 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router";
 import { getCheckingAccountsService } from "../services/checking.services";
-import { getUserService } from "../services/user.services";
 import { AuthContext } from "../context/auth.context";
 
 function Home() {
