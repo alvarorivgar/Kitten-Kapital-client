@@ -39,7 +39,7 @@ function UserDetails() {
       <p>Email: {user.email}</p>
       <p>Date of Birth: {user.dob}</p>
       <p>Client type: {user.role}</p>
-      <p>Manager: {user.manager}</p>
+      <p>Manager: {user.manager.fullName}</p>
       <ul>
         <p>Accounts:</p>
         {accounts.map((account) => {

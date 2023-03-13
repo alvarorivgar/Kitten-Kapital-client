@@ -34,7 +34,7 @@ function Navbar() {
         <div>
           <NavLink to="/admin/user-search">User Search</NavLink>
           <NavLink to="/admin/create-user">New User</NavLink>
-          <NavLink to="/">My clients</NavLink>
+          <NavLink to="/admin/my-clients">My clients</NavLink>
           <span onClick={handleLogout}>Log out</span>
         </div>
       );
