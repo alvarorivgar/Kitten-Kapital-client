@@ -17,7 +17,10 @@ function UserDetails() {
   const getData = async () => {
     try {
       const foundUser = await getUserService(userId);
-      const foundAccounts = await getCheckingAccountsService(userId) || await getKittyAccountsService(userId);
+      let foundAccounts;
+      foundUser.data.role === "user"
+        ? (foundAccounts = await getCheckingAccountsService(userId))
+        : (foundAccounts = await getKittyAccountsService(userId));
       setUser(foundUser.data);
       setAccounts(foundAccounts.data);
       setIsFetching(false);
@@ -44,15 +47,17 @@ function UserDetails() {
       <ul>
         <p>Accounts:</p>
         {accounts.map((account) => {
-          <Link key={account._id} to={`/user/${account._id}/details`}>
-            return <li>{account._id}</li>;
-          </Link>;
+          return (
+            <Link key={account._id} to={`/user/${account._id}/details`}>
+              <li>{account._id}</li>
+            </Link>
+          );
         })}
       </ul>
       <Link>
         <button>Delete User</button>
       </Link>
-      <Link to={`/create-account/${user._id}"`}>
+      <Link to={`/create-account/${user._id}`}>
         <button>Add Account</button>
       </Link>
     </div>
