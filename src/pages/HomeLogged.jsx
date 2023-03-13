@@ -1,16 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router";
 import { getCheckingAccountsService } from "../services/checking.services";
-import { getUserService } from "../services/user.services";
 import { AuthContext } from "../context/auth.context";
+import { Link } from "react-router-dom";
 
 function Home() {
-  const { userId } = useParams();
-  const [user, setUser] = useState(null);
   const [isFetching, setIsFetching] = useState(true);
   const [accountList, setAccountList] = useState([]);
   const { loggedUser } = useContext(AuthContext);
-  console.log(loggedUser);
 
 
   useEffect(() => {
@@ -19,9 +15,7 @@ function Home() {
 
   const getData = async () => {
     try {
-      // const foundUser = await getUserService(userId);
-      // setUser(foundUser.data);
-      const accounts = await getCheckingAccountsService();
+      const accounts = await getCheckingAccountsService(loggedUser._id);
       setAccountList(accounts.data);
       setIsFetching(false);
     } catch (error) {
@@ -43,11 +37,11 @@ function Home() {
       <div>
         {accountList.map((account) => {
           return (
-            <div key={account._id}>
+            <Link to={`/user/${account._id}/details`} key={account._id}>
               <p>{account.accountName}</p>
               <p>{account.balance / 100}€</p>
               <p>{account._id}</p>
-            </div>
+            </ Link>
           );
         })}
       </div>
