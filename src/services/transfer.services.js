@@ -5,7 +5,7 @@ const createTransactionService = (newTransfer)=>{
 }
 
 const transferService = (newTransfer)=>{
-    return service.patch(`/transaction/transfer`, newTransfer)
+    return service.patch("/transaction/transfer", newTransfer)
 }
 
 export {
