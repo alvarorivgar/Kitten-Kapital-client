@@ -6,9 +6,11 @@ function CreateAdminForm() {
   const navigate = useNavigate();
   const [idNumber, setIdNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
 
   const handleIdNumberChange = (e) => setIdNumber(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
+  const handleFullNameChange = (e) => setFullName(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,6 +18,7 @@ function CreateAdminForm() {
     const newAdmin = {
       idNumber,
       password,
+      fullName
     };
 
     try {
@@ -43,6 +46,14 @@ function CreateAdminForm() {
           name="password"
           value={password}
           onChange={handlePasswordChange}
+        />
+        <br />
+        <label htmlFor="fullName">Full Name:</label>
+        <input
+          type="text"
+          name="fullName"
+          value={fullName}
+          onChange={handleFullNameChange}
         />
         <br />
 
