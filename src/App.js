@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import CreateAccountForm from './components/CreateAccountForm';
 import CreateAdminForm from "./components/CreateAdminForm";
+import CreateTransferForm from "./components/CreateTransferForm";
 import CreateUserForm from "./components/CreateUserForm";
 import Navbar from "./components/Navbar";
 import SearchUsers from "./pages/admin/SearchUsers";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/admin/user-search" element={<SearchUsers />} />
         <Route path="/user/" element={<HomeLogged />} />
         <Route path="/create-account/:userId" element={<CreateAccountForm />} />
+        <Route path="/transaction/create" element={<CreateTransferForm />} />
       </Routes>
     </div>
   );

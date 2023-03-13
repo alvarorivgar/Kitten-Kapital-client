@@ -4,8 +4,8 @@ const createCheckingAccountService = (userId, checkingAccount) => {
     return service.post(`/checking/${userId}/create`, checkingAccount)
 }
 
-const getCheckingAccountsService = () => {
-    return service.get("/checking/all")
+const getCheckingAccountsService = (userId) => {
+    return service.get(`/checking/${userId}/all`)
 }
 
 

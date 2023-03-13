@@ -35,7 +35,7 @@ function Navbar() {
     return (
       <div>
         <NavLink to="/" style={toggleStyles}>Home</NavLink>
-        <NavLink to="/" style={toggleStyles}>Transfer</NavLink>
+        <NavLink to="/transaction/create" style={toggleStyles}>Transfer</NavLink>
         <NavLink to="/" style={toggleStyles}>Profile</NavLink>
         <span onClick={handleLogout} >Log out</span>
       </div>
