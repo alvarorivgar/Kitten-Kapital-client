@@ -44,7 +44,7 @@ function Navbar() {
           <NavLink to="/" style={toggleStyles}>
             Home
           </NavLink>
-          <NavLink to="/" style={toggleStyles}>
+          <NavLink to="/transaction/create" style={toggleStyles}>
             Transfer
           </NavLink>
           <NavLink to="/user/profile" style={toggleStyles}>

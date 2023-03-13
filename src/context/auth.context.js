@@ -10,7 +10,8 @@ function AuthWrapper(props) {
   const [isFetching, setIsFetching] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false)
   const [isUser, setIsUser] = useState(false)
-  const [IsKitty, setIsKitty] = useState(false)
+  const [isKitty, setIsKitty] = useState(false)
+  const [isUserOrKitty, setIsUserOrKitty] = useState(false)
 
   // Funciones de auth
 
@@ -29,8 +30,11 @@ function AuthWrapper(props) {
       // Checking if token is user
       response.data.role === "user" ? setIsUser(true) : setIsUser(false)
 
-      // Checking if token is admin
+      // Checking if token is kitty
       response.data.role === "kitty" ? setIsKitty(true) : setIsKitty(false)
+
+       // Checking if token is not admin
+       response.data.role === "kitty" || response.data.role === "user" ? setIsUserOrKitty(true) : setIsUserOrKitty(false)
 
     } catch (error) {
       setIsAdmin(false)
@@ -39,6 +43,7 @@ function AuthWrapper(props) {
       setIsLoggedIn(false);
       setLoggedUser(null);
       setIsFetching(false);
+      setIsUserOrKitty(false)
 
       console.log(error);
     }
@@ -51,9 +56,10 @@ function AuthWrapper(props) {
   const passedContext = {
     isAdmin,
     isUser,
-    IsKitty,
+    isKitty,
     isLoggedIn,
     loggedUser,
+    isUserOrKitty,
     authenticateUser,
   };
 
