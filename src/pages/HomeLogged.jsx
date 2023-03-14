@@ -54,6 +54,10 @@ function Home() {
           );
         })}
       </div>
+
+      <div>
+        <Link to={`/create-account/${loggedUser._id}`}><button>+</button></Link>
+      </div>
     </div>
   );
 }

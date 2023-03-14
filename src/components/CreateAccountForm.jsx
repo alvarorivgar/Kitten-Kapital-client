@@ -27,10 +27,10 @@ function CreateAccountForm() {
 
     const newAccount = {
       accountName,
-      transferFee,
-      maintenanceFee,
-      penaltyFee,
-      minimumBalance,
+      transferFee: transferFee * 100,
+      maintenanceFee: maintenanceFee * 100,
+      penaltyFee: penaltyFee * 100,
+      minimumBalance: minimumBalance * 100,
     };
 
     try {

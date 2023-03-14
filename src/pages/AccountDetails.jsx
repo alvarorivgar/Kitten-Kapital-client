@@ -42,7 +42,7 @@ function AccountDetails() {
       <div>
         <p>{account.accountName}</p>
         <p>
-          <span>{account._id}</span> <span>{account.balance}</span>
+          <span>{account._id}</span> <span>{account.balance}€</span>
         </p>
       </div>
       <div>
