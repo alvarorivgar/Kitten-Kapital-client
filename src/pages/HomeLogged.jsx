@@ -3,6 +3,7 @@ import { getCheckingAccountsService } from "../services/checking.services";
 import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { getKittyAccountsService } from "../services/kitty.services";
 
 function Home() {
   const [isFetching, setIsFetching] = useState(true);
@@ -20,8 +21,11 @@ function Home() {
         navigate("/admin/my-clients")
       }
 
-      const accounts = await getCheckingAccountsService(loggedUser._id);
-      setAccountList(accounts.data);
+      let foundAccounts
+      loggedUser.role === "user"
+        ? (foundAccounts = await getCheckingAccountsService(loggedUser._id))
+        : (foundAccounts = await getKittyAccountsService(loggedUser._id));
+      setAccountList(foundAccounts.data);
       setIsFetching(false);
     } catch (error) {
       console.log(error);

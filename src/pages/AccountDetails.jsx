@@ -19,7 +19,7 @@ function AccountDetails() {
     try {
       let foundAccount = await getSingleCheckingAccountDetailsService(
         accountId
-      );
+        );
       if (!foundAccount.data) {
         foundAccount = await getSingleKittyAccountDetailsService(accountId);
       }
