@@ -12,9 +12,14 @@ const getSingleKittyAccountDetailsService = (accountId) => {
     return service.get(`/kitty/${accountId}/details`)
 }
 
+const deleteKittyAccountService = (accountId) => {
+    return service.delete(`/kitty/${accountId}/delete`)
+}
+
 export {
     createKittyAccountService,
     getKittyAccountsService,
-    getSingleKittyAccountDetailsService
+    getSingleKittyAccountDetailsService,
+    deleteKittyAccountService
 
 }

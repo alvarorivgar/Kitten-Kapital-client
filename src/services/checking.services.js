@@ -12,9 +12,13 @@ const getSingleCheckingAccountDetailsService = (accountId) => {
     return service.get(`/checking/${accountId}/details`)
 }
 
+const deleteCheckingAccountService = (accountId) => {
+    return service.delete(`/checking/${accountId}/delete`)
+}
 
 export {
     createCheckingAccountService,
     getCheckingAccountsService,
-    getSingleCheckingAccountDetailsService
+    getSingleCheckingAccountDetailsService,
+    deleteCheckingAccountService
 }

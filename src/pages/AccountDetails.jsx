@@ -1,15 +1,24 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getSingleCheckingAccountDetailsService } from "../services/checking.services";
-import { getSingleKittyAccountDetailsService } from "../services/kitty.services";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+import {
+  deleteCheckingAccountService,
+  getSingleCheckingAccountDetailsService,
+} from "../services/checking.services";
+import {
+  deleteKittyAccountService,
+  getSingleKittyAccountDetailsService,
+} from "../services/kitty.services";
 import { getAccountTransactionsService } from "../services/transfer.services";
-import { getUserService } from "../services/user.services";
 
 function AccountDetails() {
+  const navigate = useNavigate();
   const { accountId } = useParams();
   const [account, setAccount] = useState(null);
   const [transactionList, setTransactionList] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
+  const { loggedUser } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     getData();
@@ -19,7 +28,7 @@ function AccountDetails() {
     try {
       let foundAccount = await getSingleCheckingAccountDetailsService(
         accountId
-        );
+      );
       if (!foundAccount.data) {
         foundAccount = await getSingleKittyAccountDetailsService(accountId);
       }
@@ -29,7 +38,25 @@ function AccountDetails() {
       setTransactionList(transactions.data);
       setIsFetching(false);
     } catch (error) {
-      console.log(error);
+      navigate("/error")
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    try {
+      account.owner.role === "user"
+        ? await deleteCheckingAccountService(accountId)
+        : await deleteKittyAccountService(accountId);
+
+      loggedUser.role === "admin"
+        ? navigate(`/admin/user-details/${account.owner._id}`)
+        : navigate("/user");
+    } catch (error) {
+      if (error.response.status === 400) {
+        setErrorMessage(error.response.data.errorMessage);
+      } else {
+        navigate("/error");
+      }
     }
   };
 
@@ -62,6 +89,10 @@ function AccountDetails() {
           );
         })}
       </div>
+      <br />
+      {errorMessage !== "" ? <p>{errorMessage}</p> : null}
+      <br />
+      <button onClick={handleDeleteAccount}>Delete Account</button>
     </div>
   );
 }

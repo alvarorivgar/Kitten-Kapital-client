@@ -11,7 +11,7 @@ import {
 
 function CreateTransferForm() {
   const navigate = useNavigate();
-  const { isLoggedIn, isAdmin, loggedUser, isUser, isKitty, isUserOrKitty } =
+  const { isLoggedIn, loggedUser, isUser, isUserOrKitty } =
     useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
   const [originAccount, setOriginAccount] = useState("");

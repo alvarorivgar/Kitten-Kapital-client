@@ -48,9 +48,11 @@ function UserDetails() {
         <p>Accounts:</p>
         {accounts.map((account) => {
           return (
+            <>
             <Link key={account._id} to={`/user/${account._id}/details`}>
               <li>{account._id}</li>
             </Link>
+            </>
           );
         })}
       </ul>

@@ -41,7 +41,7 @@ function Navbar() {
     } else { // User Navbar
       return (
         <div>
-          <NavLink to="/" style={toggleStyles}>
+          <NavLink to="/user" style={toggleStyles}>
             Home
           </NavLink>
           <NavLink to="/transaction/create" style={toggleStyles}>
