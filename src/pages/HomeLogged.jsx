@@ -2,12 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { getCheckingAccountsService } from "../services/checking.services";
 import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [isFetching, setIsFetching] = useState(true);
   const [accountList, setAccountList] = useState([]);
   const { loggedUser } = useContext(AuthContext);
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     getData();
@@ -15,6 +16,10 @@ function Home() {
 
   const getData = async () => {
     try {
+      if (loggedUser.role === "admin") {
+        navigate("/admin/my-clients")
+      }
+
       const accounts = await getCheckingAccountsService(loggedUser._id);
       setAccountList(accounts.data);
       setIsFetching(false);
@@ -41,7 +46,7 @@ function Home() {
               <p>{account.accountName}</p>
               <p>{account.balance / 100}€</p>
               <p>{account._id}</p>
-            </ Link>
+            </Link>
           );
         })}
       </div>

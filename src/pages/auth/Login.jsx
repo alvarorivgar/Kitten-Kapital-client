@@ -5,7 +5,7 @@ import { loginService } from "../../services/auth.services";
 import { AuthContext } from "../../context/auth.context";
 
 function Login() {
-  const { authenticateUser } = useContext(AuthContext);
+  const { authenticateUser, loggedUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -33,8 +33,8 @@ function Login() {
       authenticateUser();
 
       // Redireccion
-      navigate("/");
       
+      navigate("/user")
     } catch (error) {
       if (error.response.status === 400) {
         setErrorMessage(error.response.data.errorMessage);
