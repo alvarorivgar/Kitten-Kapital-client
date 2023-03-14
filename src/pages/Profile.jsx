@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context"
 import { getUserService } from "../services/user.services";
 
@@ -35,6 +36,7 @@ function Profile() {
         <p>Date of Birth: {user.dob}</p>
         <p>Client type: {user.role}</p>
         <p>Manager: {user.manager.fullName}</p>
+        <Link to="/"><button>Edit profile</button></Link>
     </div>
   )
 }
