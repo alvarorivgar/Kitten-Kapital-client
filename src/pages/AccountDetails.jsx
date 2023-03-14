@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getSingleCheckingAccountDetailsService } from "../services/checking.services";
 import { getSingleKittyAccountDetailsService } from "../services/kitty.services";
 import { getAccountTransactionsService } from "../services/transfer.services";
+import { getUserService } from "../services/user.services";
 
 function AccountDetails() {
   const { accountId } = useParams();
@@ -16,9 +17,13 @@ function AccountDetails() {
 
   const getData = async () => {
     try {
-      const foundAccount =
-        (await getSingleCheckingAccountDetailsService(accountId)) ||
-        (await getSingleKittyAccountDetailsService(accountId));
+      let foundAccount = await getSingleCheckingAccountDetailsService(
+        accountId
+      );
+      if (!foundAccount.data) {
+        foundAccount = await getSingleKittyAccountDetailsService(accountId);
+      }
+
       setAccount(foundAccount.data);
       const transactions = await getAccountTransactionsService(accountId);
       setTransactionList(transactions.data);
