@@ -16,8 +16,8 @@ const getAllMyClientsService = () => {
     return service.get("/admin/my-clients")
 }
 
-const deleteUserService = (user) => {
-    return service.delete("/admin/:userId/delete", user)
+const deleteUserService = (userId) => {
+    return service.delete(`/admin/${userId}/delete`)
 }
 
 export {

@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { deleteUserService } from "../../services/admin.services";
 import { getCheckingAccountsService } from "../../services/checking.services";
 import { getKittyAccountsService } from "../../services/kitty.services";
 import { getUserService } from "../../services/user.services";
 
 function UserDetails() {
+  const navigate = useNavigate();
   const { userId } = useParams();
   const [user, setUser] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     getData();
@@ -25,7 +28,20 @@ function UserDetails() {
       setAccounts(foundAccounts.data);
       setIsFetching(false);
     } catch (error) {
-      console.log(error);
+      navigate("/error");
+    }
+  };
+
+  const handleDeleteUser = async () => {
+    try {
+      await deleteUserService(user._id);
+      navigate("/admin/my-clients");
+    } catch (error) {
+      if (error.response.status === 400) {
+        setErrorMessage(error.response.data.errorMessage);
+      } else {
+        navigate("/error");
+      }
     }
   };
 
@@ -49,16 +65,17 @@ function UserDetails() {
         {accounts.map((account) => {
           return (
             <>
-            <Link key={account._id} to={`/user/${account._id}/details`}>
-              <li>{account._id}</li>
-            </Link>
+              <Link key={account._id} to={`/user/${account._id}/details`}>
+                <li>{account._id}</li>
+              </Link>
             </>
           );
         })}
       </ul>
-      <Link>
-        <button>Delete User</button>
-      </Link>
+      <br />
+      {errorMessage !== "" ? <p>{errorMessage}</p> : null}
+      <br />
+      <button onClick={handleDeleteUser}>Delete User</button>
       <Link to={`/create-account/${user._id}`}>
         <button>Add Account</button>
       </Link>
