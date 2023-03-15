@@ -4,12 +4,20 @@ const getUserService = (userId) => {
     return service.get(`/user/${userId}`)
 }
 
-const editUserDetailsService = (userId, editedUser) => {
-    return service.patch(`/user/${userId}/edit`, editedUser)
+const editUserEmailService = (userId, newEmail) => {
+    return service.patch(`/user/${userId}/edit-email`, newEmail)
+}
+const editUserPasswordService = (userId, newPassword1, newPassword2) => {
+    return service.patch(`/user/${userId}/edit-password`, newPassword1, newPassword2)
+}
+const editUserImageService = (userId, newImage) => {
+    return service.patch(`/user/${userId}/edit-image`, newImage)
 }
 
 
 export {
     getUserService,
-    editUserDetailsService
+    editUserEmailService,
+    editUserPasswordService,
+    editUserImageService
 }

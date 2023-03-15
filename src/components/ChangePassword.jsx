@@ -1,15 +1,28 @@
 import { useState } from "react";
 
 function ChangePassword(props) {
-    const [password1, setPassword1] = useState("");
-    const [password2, setPassword2] = useState("");
-    
-    const handlePassword1Change = (e) => setPassword1(e.target.value);
-    const handlePassword2Change = (e) => setPassword2(e.target.value);
+  const [password1, setPassword1] = useState("");
+  const [password2, setPassword2] = useState("");
+
+  const handlePassword1Change = (e) => setPassword1(e.target.value);
+  const handlePassword2Change = (e) => setPassword2(e.target.value);
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+
+    const newPassword = {
+      password1,
+      password2,
+    };
+
+    props.changePassword(newPassword);
+  };
 
   return (
     <div>
-        <form >
+      <p>Warning! After changing your password you will need to log in.</p>
+
+      <form onSubmit={handleSubmitForm}>
         <label htmlFor="password1">New Password</label>
         <input
           type="password"
@@ -25,9 +38,10 @@ function ChangePassword(props) {
           value={password2}
           onChange={handlePassword2Change}
         />
-        </form>
+        <button>Update</button>
+      </form>
     </div>
-  )
+  );
 }
 
-export default ChangePassword
+export default ChangePassword;

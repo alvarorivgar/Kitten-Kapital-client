@@ -4,9 +4,11 @@ import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getKittyAccountsService } from "../services/kitty.services";
+import { getUserService } from "../services/user.services";
 
 function Home() {
   const [isFetching, setIsFetching] = useState(true);
+  const [user, setUser] = useState(null)
   const [accountList, setAccountList] = useState([]);
   const { loggedUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -21,6 +23,8 @@ function Home() {
         navigate("/admin/my-clients")
       }
 
+      const foundUser = await getUserService(loggedUser._id)
+      setUser(foundUser.data)
       let foundAccounts
       loggedUser.role === "user"
         ? (foundAccounts = await getCheckingAccountsService(loggedUser._id))
@@ -39,8 +43,8 @@ function Home() {
   return (
     <div>
       <header>
-        <img src={loggedUser.image} alt="profile pic" />
-        <span>Hello, {loggedUser.firstName}</span>
+        <img src={user.image} alt="profile pic" />
+        <span>Hello, {user.firstName}</span>
       </header>
 
       <div>

@@ -3,19 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { editUserDetailsService } from "../services/user.services";
 
 function ChangeEmail(props) {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
 
   const handleEmailChange = (e) => setEmail(e.target.value);
 
-  const handleSubmitForm = async (e) => {
+  const handleSubmitForm = (e) => {
     e.preventDefault();
 
     const newEmail = {
       email,
     };
 
-    props.changeEmail(newEmail)
+    props.changeEmail(newEmail);
   };
 
   return (
@@ -28,7 +27,8 @@ function ChangeEmail(props) {
           value={email}
           onChange={handleEmailChange}
         />
-        <button >Update</button>
+
+        <button>Update</button>
       </form>
     </div>
   );
