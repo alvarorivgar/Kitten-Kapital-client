@@ -10,7 +10,11 @@
 }
 
 .card {
-  background-color: black;
+  background-color: #413f3f;
+}
+
+#card-Background{
+  background-color: #413f3f;
 }
 
 p {

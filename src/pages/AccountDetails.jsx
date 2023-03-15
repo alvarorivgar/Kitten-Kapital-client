@@ -93,11 +93,11 @@ function AccountDetails() {
           >
             <Modal.Body>
               <div className="wrapper">
-                <div className="card px-4">
+                <div id="card-Background" className="card px-4">
                   <div className=" my-3">
-                    <p className="h8">Card number</p>
+                    <p className="h8">Add Money</p>
                     <p className="text-muted ">
-                      Introduce your Credit Card credentials and the money to
+                      Coose your credit card, introduce your credentials and add money to
                       your virtual account
                     </p>
                   </div>
