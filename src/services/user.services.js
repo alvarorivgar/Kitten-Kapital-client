@@ -4,8 +4,8 @@ const getUserService = (userId) => {
     return service.get(`/user/${userId}`)
 }
 
-const editUserDetailsService = (userId) => {
-    return service.patch(`/user/${userId}`)
+const editUserDetailsService = (userId, editedUser) => {
+    return service.patch(`/user/${userId}/edit`, editedUser)
 }
 
 

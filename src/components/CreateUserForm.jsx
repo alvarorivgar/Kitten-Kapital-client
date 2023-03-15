@@ -55,7 +55,7 @@ function CreateUserForm() {
         <Navigate to="/login" />
       ) : (
         <div>
-          <h3>Creatre User</h3>
+          <h3>Create User</h3>
           <form onSubmit={handleSubmit}>
             <label htmlFor="firstName">First Name</label>
             <input

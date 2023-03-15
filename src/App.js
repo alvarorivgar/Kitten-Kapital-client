@@ -13,6 +13,7 @@ import Login from "./pages/auth/Login";
 import HomeAnon from "./pages/HomeAnon";
 import HomeLogged from "./pages/HomeLogged";
 import Profile from "./pages/Profile";
+import EditProfileForm from "./components/EditProfileForm";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/" element={<HomeAnon />} />
         <Route path="/user/" element={<HomeLogged />} />
         <Route path="/user/profile" element={<Profile />} />
+        <Route path="/user/profile/edit" element={<EditProfileForm />} />
         <Route path="/create-account/:userId" element={<CreateAccountForm />} />
         <Route path="/transaction/create" element={<CreateTransferForm />} />
         <Route path="/user/:accountId/details" element={<AccountDetails />} />
