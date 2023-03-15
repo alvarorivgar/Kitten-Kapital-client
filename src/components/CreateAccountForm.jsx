@@ -62,7 +62,7 @@ function CreateAccountForm() {
         <Navigate to="/login" />
       ) : isAdmin === true ? (
         <div>
-          <h3>soy un admin hola</h3>
+          <h3>Create an account</h3>
           <form onSubmit={handleSubmit}>
             <label htmlFor="accountName">Account Name</label>
             <input
