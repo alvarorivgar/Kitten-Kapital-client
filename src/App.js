@@ -13,6 +13,7 @@ import Login from "./pages/auth/Login";
 import HomeAnon from "./pages/HomeAnon";
 import HomeLogged from "./pages/HomeLogged";
 import Profile from "./pages/Profile";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import EditProfileForm from "./components/EditProfileForm";
 
 function App() {
