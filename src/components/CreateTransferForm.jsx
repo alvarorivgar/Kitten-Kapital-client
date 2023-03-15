@@ -55,7 +55,6 @@ function CreateTransferForm() {
     };
 
     try {
-      console.log(newTransfer);
       await transferService(newTransfer);
       await createTransactionService(newTransfer);
       navigate("/user");

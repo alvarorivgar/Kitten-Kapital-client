@@ -16,10 +16,15 @@ const deleteKittyAccountService = (accountId) => {
     return service.delete(`/kitty/${accountId}/delete`)
 }
 
+const addMoneyKittyService = (accountId, moneyToAdd)=>{
+    return service.patch(`kitty/${accountId}/add-money`, moneyToAdd)
+}
+
 export {
     createKittyAccountService,
     getKittyAccountsService,
     getSingleKittyAccountDetailsService,
-    deleteKittyAccountService
+    deleteKittyAccountService,
+    addMoneyKittyService
 
 }

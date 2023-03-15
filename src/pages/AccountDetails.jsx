@@ -2,10 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import {
+  addMoneyCheckingService,
   deleteCheckingAccountService,
   getSingleCheckingAccountDetailsService,
 } from "../services/checking.services";
 import {
+  addMoneyKittyService,
   deleteKittyAccountService,
   getSingleKittyAccountDetailsService,
 } from "../services/kitty.services";
@@ -23,6 +25,8 @@ function AccountDetails() {
   const { loggedUser } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
   const [show, setShow] = useState(false);
+  const [moneyToAdd, setMoneyToAdd] = useState("");
+  const handleMoneyToAddChange = (e) => setMoneyToAdd(e.target.value);
 
   useEffect(() => {
     getData();
@@ -45,7 +49,7 @@ function AccountDetails() {
       navigate("/error");
     }
   };
-
+  
   const handleDeleteAccount = async () => {
     try {
       account.owner.role === "user"
@@ -63,20 +67,41 @@ function AccountDetails() {
       }
     }
   };
+  const handleAddMoney = async (e) => {
+    e.preventDefault();
+    const newMoneyToAdd= {
+      moneyToAdd
+    }
+    try {
+      account.owner.role === "user"
+        ? await addMoneyCheckingService(accountId, newMoneyToAdd)
+        : await addMoneyKittyService(accountId, newMoneyToAdd);
+        getData()
+        handleClose()
+        
+
+    } catch (error) {
+      if (error.response.status === 400) {
+        setErrorMessage(error.response.data.errorMessage);
+      } else {
+        navigate("/error");
+      }
+    }
+  };
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   if (isFetching) {
     return <h2>Spinner...</h2>;
   }
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   return (
     <div>
       <div>
         <p>{account.accountName}</p>
         <p>
-          <span>{account._id}</span> <span>{account.balance}€</span>
+          <span>{account._id}</span> <span>{account.balance / 100 }€</span>
         </p>
       </div>
       <div>
@@ -97,8 +122,8 @@ function AccountDetails() {
                   <div className=" my-3">
                     <p className="h8">Add Money</p>
                     <p className="text-muted ">
-                      Coose your credit card, introduce your credentials and add money to
-                      your virtual account
+                      Coose your credit card, introduce your credentials and add
+                      money to your virtual account
                     </p>
                   </div>
 
@@ -122,8 +147,6 @@ function AccountDetails() {
                       <div className="mt-auto fw-bold d-flex align-items-center justify-content-between">
                         <p>
                           <input
-                            // minLength="16"
-                            // maxLength="16"
                             className="card-Number-Form"
                             size="16"
                             type="text"
@@ -133,8 +156,6 @@ function AccountDetails() {
 
                         <p>
                           <input
-                            // minLength="5"
-                            // maxLength="5"
                             className="card-Date-Form"
                             size="5"
                             type="text"
@@ -163,8 +184,6 @@ function AccountDetails() {
                       <div className="mt-auto fw-bold d-flex align-items-center justify-content-between">
                         <p>
                           <input
-                            // minlength="16"
-                            // maxlength="16"
                             className="card-Number-Form"
                             size="16"
                             type="text"
@@ -174,8 +193,6 @@ function AccountDetails() {
 
                         <p>
                           <input
-                            // minLength="5"
-                            // maxLength="5"
                             className="card-Date-Form"
                             size="5"
                             type="text"
@@ -188,10 +205,14 @@ function AccountDetails() {
                   <Form.Control
                     className="card-addMoney-form mb-4"
                     size="lg"
-                    type="text"
-                    placeholder="0  €"
+                    type="number"
+                    placeholder="0 €"
+                    value={moneyToAdd}
+                    onChange={handleMoneyToAddChange}
                   />
-                  <div className="btnCard mb-4">Add Money</div>
+                  <div className="btnCard mb-4" onClick={handleAddMoney}>
+                    Add Money
+                  </div>
                   <div className="btnCard mb-4" onClick={handleClose}>
                     Close
                   </div>
