@@ -14,6 +14,7 @@ import HomeAnon from "./pages/HomeAnon";
 import HomeLogged from "./pages/HomeLogged";
 import Profile from "./pages/Profile";
 import "bootstrap/dist/css/bootstrap.min.css";
+import VideoCall from "./pages/VideoCall";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/create-account/:userId" element={<CreateAccountForm />} />
         <Route path="/transaction/create" element={<CreateTransferForm />} />
         <Route path="/user/:accountId/details" element={<AccountDetails />} />
+        <Route path="/video" element={<VideoCall />} />
       </Routes>
     </div>
   );
