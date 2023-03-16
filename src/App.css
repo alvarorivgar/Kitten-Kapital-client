@@ -306,6 +306,10 @@ input[type="radio"]:hover {
   justify-content: space-between;
 }
 
+.link-button{
+  text-decoration: none;
+}
+
 .link:hover{
   color: lightblue;
 }

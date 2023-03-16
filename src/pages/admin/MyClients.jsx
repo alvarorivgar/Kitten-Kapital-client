@@ -26,20 +26,34 @@ function MyClients() {
   }
 
   return (
-    <div>
-      <div>MyClients</div>
-      {myClientsList.map((eachClient) => {
-        return (
-          <Link key={eachClient._id} to={`/admin/user-details/${eachClient._id}`}>
-            <div>
-              <p>
-                {eachClient.firstName} {eachClient.lastName}
-              </p>
-              <p>{eachClient.idNumber}</p>
-            </div>
-          </Link>
-        );
-      })}
+    <div className="container">
+      <div className="row justify-content-center pt-2 mt-2 m-1">
+        <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
+          <h1>MyClients</h1>
+        </div>
+      </div>
+      <hr />
+      <div className="d-flex justify-content-center">
+        <table>
+          {myClientsList.map((eachClient) => {
+            return (
+              <Link
+                className="link-button"
+                key={eachClient._id}
+                to={`/admin/user-details/${eachClient._id}`}
+              >
+                <div class="d-flex justify-content-left btn btn-block ingresar align-items-center">
+                  <span>{eachClient.idNumber}</span>
+                  <span className="ms-4">
+                    {eachClient.firstName} {eachClient.lastName}
+                  </span>
+                </div>
+                <hr />
+              </Link>
+            );
+          })}
+        </table>
+      </div>
     </div>
   );
 }
