@@ -14,7 +14,7 @@ import {
 import { getAccountTransactionsService } from "../services/transfer.services";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { Form } from "react-bootstrap";
+import { Collapse, Form } from "react-bootstrap";
 import { BallTriangle } from "react-loading-icons";
 
 
@@ -23,6 +23,7 @@ function AccountDetails() {
   const { accountId } = useParams();
   const [account, setAccount] = useState(null);
   const [transactionList, setTransactionList] = useState([]);
+  const [isTransactionListShowing, setIsTransactionListShowing] = useState(false)
   const [isFetching, setIsFetching] = useState(true);
   const { loggedUser } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
@@ -229,7 +230,13 @@ function AccountDetails() {
       </div>
       <br />
       <div>
-        <h3>Movements</h3>
+        <div className="formulario">
+        <h3 onClick={() => setIsTransactionListShowing(!isTransactionListShowing)}>Movements</h3>
+        <Collapse in={isTransactionListShowing}>
+         
+        <div>
+          <br />
+
         {transactionList.map((transaction) => {
           return (
             <div key={transaction._id}>
@@ -238,9 +245,13 @@ function AccountDetails() {
               <p>Subject: {transaction.subject}</p>
               <p>Destination: {transaction.destination}</p>
               <p>Date: {transaction.createdAt}</p>
+              <hr />
             </div>
           );
         })}
+        </div>
+        </Collapse>
+        </div>
       </div>
       <br />
       {errorMessage !== "" ? <p>{errorMessage}</p> : null}

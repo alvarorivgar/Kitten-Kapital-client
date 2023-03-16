@@ -72,7 +72,7 @@ function UserDetails() {
         {accounts.map((account) => {
           return (
             <>
-              <Link key={account._id} to={`/user/${account._id}/details`} >
+              <Link key={account._id} to={`/user/${account._id}/details`} className="link-white">
                 <p>{account._id}</p>
               </Link>
             </>

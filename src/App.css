@@ -306,6 +306,11 @@ input[type="radio"]:hover {
   justify-content: space-between;
 }
 
+.link-white{
+  text-decoration: none;
+  color: white;
+}
+
 .link-button{
   text-decoration: none;
 }
