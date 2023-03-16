@@ -1,23 +1,7 @@
 function HomeAnon() {
   return (
     <div className="home-anon">
-      <img src="../images/logo.png" alt="logo" />
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
+      <img src="" alt="logo" />
 
       <footer>
         <div className="names">

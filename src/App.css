@@ -283,9 +283,13 @@ input[type="radio"]:hover {
 
 
 /* //// NavBar //// */
-
+@media only screen and (max-width: 2000px) {
 .navbar {
   background-color: #00040f;
+  /* overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;   */
 }
 
 #anon-logo {
@@ -306,6 +310,10 @@ input[type="radio"]:hover {
   justify-content: space-around;
   align-items: center;
   height: 6.5vh;
+  /* overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%; */
 }
 
 #user-navbar {
@@ -314,6 +322,10 @@ input[type="radio"]:hover {
   justify-content: space-around;
   align-items: center;
   height: 6.5vh;
+  /* overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%; */
 }
 
 .logout {
@@ -323,16 +335,51 @@ input[type="radio"]:hover {
 .navbar img {
   display: none;
 }
-
+}
 
 @media only screen and (max-width: 768px) {
+  .navbar {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  #admin-navbar {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  #user-navbar {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
   .navbar img {
     display: block;
+    width: 40px;
+    margin: 0;
   }
 
   .navbar span {
     display: none;
   }
+
+  .navlinks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 35vw;
+    height: 5vh;
+  }
+
+  #anon-logo {
+    width: 25vw;
+  }
+  
+
 }
 
 /* //// Home Anon //// */
