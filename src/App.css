@@ -505,9 +505,9 @@ input[type="radio"]:hover {
 /* //// Home Anon //// */
 
 #home-body {
-  display: flex;
+  /* display: flex; */
   color: white;
-  margin: 40px;
+  /* margin: 40px; */
   width: 100%;
   align-items: left;
 }
@@ -520,16 +520,16 @@ input[type="radio"]:hover {
 
 
 #section-one {
-  font-size: 30px;
-  text-align: left;
-  width: 45vw;
+  font-size: 20px;
+  /* text-align: left; */
+  /* width: 45vw; */
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 #section-two {
-  width: 45vw;
+  /* width: 45vw; */
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 #get-started {
