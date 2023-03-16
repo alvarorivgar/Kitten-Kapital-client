@@ -46,17 +46,22 @@ function HomeAnon() {
       </div>
       <div className="container">
         <div className="row d-flex justify-content-center pt-1 mt-2 m-1">
-          <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
-            <div className="">
-              <img
-                className="home-anon-img"
-                src="https://res.cloudinary.com/dkz1jslyi/image/upload/v1678990551/Kitten%20Kapital/business-cat_m3nhpx.png"
-                alt="cat"
-              />
-              <Link to="/video">
-                <button id="get-started">Get started!</button>
-              </Link>
-            </div>
+          <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4">
+            <img
+              className="home-anon-img"
+              src="https://res.cloudinary.com/dkz1jslyi/image/upload/v1678990551/Kitten%20Kapital/business-cat_m3nhpx.png"
+              alt="cat"
+            />
+            <Link to="/video">
+              <div class="icon-btn d-flex justify-content-center">
+                <button class="btn-green">
+                  <span class="btn-gradient">
+                    <i class="fa fa-check"></i>
+                  </span>
+                  <span class="btn-text">Get Started</span>
+                </button>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
