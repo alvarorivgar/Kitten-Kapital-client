@@ -141,10 +141,13 @@ function CreateUserForm() {
                       />
                     </div>
                     <div className="form-group mx-sm-4 pb-4 pt-4">
-
-                    <input type="submit" className="btn btn-block ingresar" value= "Register"></input>
+                      <input
+                        type="submit"
+                        className="btn btn-block ingresar"
+                        value="Register"
+                      ></input>
                     </div>
-                    
+
                     {errorMessage !== "" ? (
                       <p class="date-of-birth-text">{errorMessage}</p>
                     ) : null}

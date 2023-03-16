@@ -18,7 +18,7 @@ function CreateAdminForm() {
     const newAdmin = {
       idNumber,
       password,
-      fullName
+      fullName,
     };
 
     try {
@@ -30,35 +30,48 @@ function CreateAdminForm() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="idNumber">ID:</label>
-        <input
-          type="text"
-          name="idNumber"
-          value={idNumber}
-          onChange={handleIdNumberChange}
-        />
-        <br />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-        <br />
-        <label htmlFor="fullName">Full Name:</label>
-        <input
-          type="text"
-          name="fullName"
-          value={fullName}
-          onChange={handleFullNameChange}
-        />
-        <br />
-
-        <button type="submit">Create</button>
-      </form>
+    <div className="container">
+      <div className="row justify-content-center pt-2 mt-2 m-1">
+        <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group mx-sm-4 pt-3">
+              <input
+                className="form-control"
+                type="text"
+                name="idNumber"
+                value={idNumber}
+                placeholder="introduce Id"
+                onChange={handleIdNumberChange}
+              />
+            </div>
+            <div className="form-group mx-sm-4 pt-3">
+              <input
+                className="form-control"
+                type="password"
+                name="password"
+                value={password}
+                placeholder="Password"
+                onChange={handlePasswordChange}
+              />
+            </div>
+            <div className="form-group mx-sm-4 pt-3">
+              <input
+                className="form-control"
+                type="text"
+                name="fullName"
+                value={fullName}
+                placeholder="fullName"
+                onChange={handleFullNameChange}
+              />
+            </div>
+            <div className="form-group mx-sm-4 pb-4 pt-4">
+              <button type="submit" className="btn btn-block ingresar">
+                Create
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

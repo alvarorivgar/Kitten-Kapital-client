@@ -40,25 +40,33 @@ function EditProfileForm(props) {
   };
 
   return (
-    <div>
+    <div className="container">
+    <div className="row justify-content-center pt-2 mt-2 m-1">
+    <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
       <form onSubmit={handleSubmit}>
         <label htmlFor="image">Profile picture</label>
+        <div className="form-group mx-sm-4 pt-3">
         <input
+        className="form-control"
           type="file"
           name="image"
+          placeholder="email"
           onChange={handleFileUpload}
           disabled={isUploading}
         />
-        <br />
-        {isUploading ? <h3>... uploading image</h3> : null}
+        </div>
+        {isUploading ? <h3 class="date-of-birth-text">... uploading image</h3> : null}
         {image ? (
-          <div>
+          <div className="justify-content-center pt-2 mt-2 m-1">
             <img src={image} alt="img" width={200} />
           </div>
         ) : null}
-
-        <button type="submit">Update</button>
+        <div className="form-group mx-sm-4 pb-4 pt-4">
+        <button type="submit" className="btn btn-block ingresar">Update</button>
+        </div>
       </form>
+    </div>
+    </div>
     </div>
   );
 }
