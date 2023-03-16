@@ -1,6 +1,6 @@
 function NotFound() {
   return (
-    <div>
+    <div id="not-found">
       <h3>Error 404. Our cats cannot find what you are looking for.</h3>
     </div>
   );

@@ -41,7 +41,7 @@ function Profile() {
     try {
       const response = await editUserImageService(user._id, image);
       setIsImageFormShowing(!isImageFormShowing);
-      setUser(response.data)
+      setUser(response.data);
     } catch (error) {
       if (error.response.status === 400) {
         setErrorMessage(error.response.data.errorMessage);
@@ -88,44 +88,64 @@ function Profile() {
   }
 
   return (
-    <div>
-      <img src={user.image} alt="profile pic" />
-      <button onClick={() => setIsImageFormShowing(!isImageFormShowing)}>
-        Edit
-      </button>
-      <Collapse in={isImageFormShowing}>
-        <div>
-          <ChangeImage changeImage={changeImage} />
-        </div>
-      </Collapse>
-      <p>
-        {user.firstName} {user.lastName}
-      </p>
+    <div className="container">
+      <div className="row justify-content-center pt-2 mt-2 m-1">
+        <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
+          <img src={user.image} alt="profile pic" id="profile-pic" />
+          <button
+            onClick={() => setIsImageFormShowing(!isImageFormShowing)}
+            className="btn btn-block ingresar"
+          >
+            ✎
+          </button>
+          <Collapse in={isImageFormShowing}>
+            <div>
+              <ChangeImage changeImage={changeImage} />
+            </div>
+          </Collapse>
+          <br />
+          <br />
+          <h3>
+            {user.firstName} {user.lastName}
+          </h3>
+          <br />
+          <p>Email: {user.email}</p>
+          <button
+            onClick={() => setIsEmailFormShowing(!isEmailFormShowing)}
+            className="btn btn-block ingresar edit-btn"
+          >
+            Change email
+          </button>
+          <Collapse in={isEmailFormShowing}>
+            <div>
+              <ChangeEmail changeEmail={changeEmail} />
+            </div>
+          </Collapse>
+          <br />
+          <br />
+          <p>Date of Birth: {user.dob}</p>
+          <br />
+          <p>Client type: {user.role}</p>
+          <br />
+          <p>Manager: {user.manager.fullName}</p>
+          <br />
+          <button
+            onClick={() => setIsPasswordFormShowing(!isPasswordFormShowing)}
+            className="btn btn-block ingresar"
+          >
+            Change Password
+          </button>
+          <Collapse in={isPasswordFormShowing}>
+            <div>
+              <ChangePassword changePassword={changePassword} />
+            </div>
+          </Collapse>
 
-      <p>Email: {user.email}</p>
-      <button onClick={() => setIsEmailFormShowing(!isEmailFormShowing)}>
-        Change email
-      </button>
-      <Collapse in={isEmailFormShowing}>
-        <div>
-          <ChangeEmail changeEmail={changeEmail} />
+          <br />
+          {errorMessage !== "" ? <p>{errorMessage}</p> : null}
+          <br />
         </div>
-      </Collapse>
-      <p>Date of Birth: {user.dob}</p>
-      <p>Client type: {user.role}</p>
-      <p>Manager: {user.manager.fullName}</p>
-      <button onClick={() => setIsPasswordFormShowing(!isPasswordFormShowing)}>
-        Change Password
-      </button>
-      <Collapse in={isPasswordFormShowing}>
-        <div>
-          <ChangePassword changePassword={changePassword} />
-        </div>
-      </Collapse>
-
-      <br />
-      {errorMessage !== "" ? <p>{errorMessage}</p> : null}
-      <br />
+      </div>
     </div>
   );
 }

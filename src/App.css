@@ -306,6 +306,11 @@ input[type="radio"]:hover {
   justify-content: space-between;
 }
 
+.link-white{
+  text-decoration: none;
+  color: white;
+}
+
 .link-button{
   text-decoration: none;
 }
@@ -558,4 +563,20 @@ footer {
 .names {
   display: flex;
   flex-direction: column;
+}
+
+#error {
+  margin: 50px;
+  color: white;
+}
+
+#not-found {
+  margin: 50px;
+  color: white;
+}
+
+#profile-pic {
+  width: 100%;
+  max-height: 600px;
+  border-radius: 15px;
 }
