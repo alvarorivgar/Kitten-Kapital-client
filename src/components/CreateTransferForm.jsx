@@ -88,7 +88,7 @@ function CreateTransferForm() {
           {/* if is User, show your user accounts */}
           {isUser === true ? (
             <div>
-              <h3>hola soy un user</h3>
+              <h3>Transfer money</h3>
               <label htmlFor="originAccount">
                 Origin Account:
                 <select
@@ -102,7 +102,7 @@ function CreateTransferForm() {
                   {checkingAccountsList.map((eachAccount) => {
                     return (
                       <option key={eachAccount._id} value={eachAccount._id}>
-                        {eachAccount.accountName}
+                        {eachAccount.accountName}    {eachAccount.balance / 100}€
                       </option>
                     );
                   })}
@@ -112,7 +112,7 @@ function CreateTransferForm() {
           ) : (
             <div>
               {/* else, if is kitty, show your kitty accounts */}
-              <h3>hola soy un kitty</h3>
+              <h3>Transfer money</h3>
               <label htmlFor="originAccount">
                 Origin Account:
                 <select
@@ -125,8 +125,8 @@ function CreateTransferForm() {
                   </option>
                   {kittyAccountsList.map((eachAccount) => {
                     return (
-                      <option key={eachAccount._id} value={eachAccount._id}>
-                        {eachAccount.accountName}
+                      <option key={eachAccount._id} value={eachAccount._id} >
+                        {eachAccount.accountName}    {eachAccount.balance / 100}€
                       </option>
                     );
                   })}
