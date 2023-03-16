@@ -306,6 +306,15 @@ input[type="radio"]:hover {
   justify-content: space-between;
 }
 
+.link-white{
+  text-decoration: none;
+  color: white;
+}
+
+.link-button{
+  text-decoration: none;
+}
+
 .link:hover{
   color: lightblue;
 }
@@ -318,6 +327,11 @@ input[type="radio"]:hover {
   position: fixed;
   top: 0;
   width: 100%;   */
+  color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
+
   }
 
   #anon-logo {
@@ -338,6 +352,10 @@ input[type="radio"]:hover {
     justify-content: space-around;
     align-items: center;
     height: 6.5vh;
+    color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
     /* overflow: hidden;
   position: fixed;
   top: 0;
@@ -345,11 +363,15 @@ input[type="radio"]:hover {
   }
 
   #user-navbar {
-    background-color: #00040f;
+    /* background-color: #00040f; */
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 6.5vh;
+    color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
     /* overflow: hidden;
   position: fixed;
   top: 0;
@@ -369,7 +391,7 @@ input[type="radio"]:hover {
   }
 
   .acc-collapse {
-    width: 90vw;
+    /* width: 90vw; */
     text-align: left;
     margin: 50px 5% 10px 5%;
     background-color: #214d76;
@@ -379,12 +401,17 @@ input[type="radio"]:hover {
   }
   
   .home-acc-list {
-    width: 90vw;
+    /* width: 90vw; */
     margin: 10px 5%;
     background-color: #386188;
     color: white;
     border-radius: 5px;
     padding: 10px;
+  }
+
+  .home-anon-img-logo{
+    width: 25vw;
+    backdrop-filter: blur(6px);
   }
 }
 /* Mobile */
@@ -400,6 +427,10 @@ input[type="radio"]:hover {
   }
 
   .navbar {
+    color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
     overflow: hidden;
     position: fixed;
     bottom: 0;
@@ -410,6 +441,10 @@ input[type="radio"]:hover {
     position: fixed;
     bottom: 0;
     width: 100%;
+    color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
   }
 
   #user-navbar {
@@ -417,6 +452,10 @@ input[type="radio"]:hover {
     position: fixed;
     bottom: 0;
     width: 100%;
+    color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
   }
   .navbar img {
     display: block;
@@ -454,7 +493,7 @@ input[type="radio"]:hover {
   }
 
   .acc-collapse {
-    width: 90vw;
+    /* width: 90vw; */
     text-align: left;
     margin: 5%;
     background-color: #214d76;
@@ -464,23 +503,92 @@ input[type="radio"]:hover {
   }
   
   .home-acc-list {
-    width: 90vw;
+    /* width: 90vw; */
     margin: 5%;
     background-color: #386188;
     color: white;
     border-radius: 5px;
     padding: 10px;
   }
+
+  .home-anon-img-logo{
+    width: 75vw;
+    backdrop-filter: blur(6px);
+  }
 }
 
 /* //// Home Anon //// */
 
+#home-body {
+  /* display: flex; */
+  color: white;
+  /* margin: 40px; */
+  width: 100%;
+  align-items: left;
+}
+
+.home-anon-img{
+  width: 200px;
+  backdrop-filter: blur(6px);
+}
+
+
+
+
+
+#section-one {
+  font-size: 20px;
+  /* text-align: left; */
+  /* width: 45vw; */
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+#section-two {
+  /* width: 45vw; */
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
+}
+
+#get-started {
+  background-color: orange;
+  border-radius: 50px;
+  padding: 15px;
+}
+
+#logo-home {
+  /* width: 500px; */
+  margin-top: 30px;
+}
+
 footer {
   display: flex;
   justify-content: space-evenly;
+  /* background-color: #034786; */
+  padding: 15px;
+  color: white;
+  color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
 }
 
 .names {
   display: flex;
   flex-direction: column;
+}
+
+#error {
+  margin: 50px;
+  color: white;
+}
+
+#not-found {
+  margin: 50px;
+  color: white;
+}
+
+#profile-pic {
+  width: 100%;
+  max-height: 600px;
+  border-radius: 15px;
 }

@@ -15,6 +15,8 @@ import HomeLogged from "./pages/HomeLogged";
 import Profile from "./pages/Profile";
 import "bootstrap/dist/css/bootstrap.min.css";
 import VideoCall from "./pages/VideoCall";
+import NotFound from "./pages/errors/NotFound";
+import Error from "./pages/errors/Error";
 
 function App() {
   return (
@@ -36,6 +38,9 @@ function App() {
         <Route path="/transaction/create" element={<CreateTransferForm />} />
         <Route path="/user/:accountId/details" element={<AccountDetails />} />
         <Route path="/video" element={<VideoCall />} />
+
+        <Route path="/error" element={<Error />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

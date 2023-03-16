@@ -52,59 +52,67 @@ function Home() {
         <img src={user.image} alt="profile pic" className="img-circle" />
         <span>Hello, {user.firstName}</span>
       </header>
-      <div
-        className="acc-collapse"
-        onClick={() => setIsAccountListShowing(!isAccountListShowing)}
-      >
-        Accounts
-      </div>
-      <Collapse in={isAccountListShowing}>
-        <div className="home-acc-list">
-          {accountList.map((account) => {
-            return (
-              <Link
-                className="link"
-                to={`/user/${account._id}/details`}
-                key={account._id}
-              >
-                <div>
-                  <p>{account.accountName}</p>
-                  <p>IBAN: {account._id}</p>
-                </div>
-                <div>
-                  <p>{account.balance / 100}€</p>
-                </div>
+      <div className="container">
+        <div className="row justify-content-center pt-2 mt-2 m-1">
+          <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
+            <div 
+              className="acc-collapse ingresar d-flex align-items-center"
+              onClick={() => setIsAccountListShowing(!isAccountListShowing)}
+            >
+              Accounts
+            </div>
+            <Collapse in={isAccountListShowing}>
+              <div className="home-acc-list ingresar">
+                {accountList.map((account) => {
+                  return (
+                    <Link
+                      className="link"
+                      to={`/user/${account._id}/details`}
+                      key={account._id}
+                    >
+                      <div>
+                        <p>{account.accountName}</p>
+                        <p>IBAN: {account._id}</p>
+                      </div>
+                      <div>
+                        <p>{account.balance / 100}€</p>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </Collapse>
+            <div
+              className="acc-collapse ingresar d-flex align-items-center"
+              onClick={() =>
+                setIsSavingsAccountListShowing(!isSavingsAccountListShowing)
+              }
+            >
+              Savings
+            </div>
+            <Collapse in={isSavingsAccountListShowing}>
+              <div>No accounts found</div>
+            </Collapse>
+
+            <div
+              className="acc-collapse ingresar d-flex align-items-center"
+              onClick={() =>
+                setIsCreditCardListShowing(!isCreditCardListShowing)
+              }
+            >
+              Credit Cards
+            </div>
+            <Collapse in={isCreditCardListShowing}>
+              <div>No cards found</div>
+            </Collapse>
+
+            <div>
+              <Link to={`/create-account/${loggedUser._id}`}>
+                <button id="new-acc-btn" className="ingresar">+</button>
               </Link>
-            );
-          })}
+            </div>
+          </div>
         </div>
-      </Collapse>
-      <div
-        className="acc-collapse"
-        onClick={() =>
-          setIsSavingsAccountListShowing(!isSavingsAccountListShowing)
-        }
-      >
-        Savings
-      </div>
-      <Collapse in={isSavingsAccountListShowing}>
-        <div>No accounts found</div>
-      </Collapse>
-
-      <div
-        className="acc-collapse"
-        onClick={() => setIsCreditCardListShowing(!isCreditCardListShowing)}
-      >
-        Credit Cards
-      </div>
-      <Collapse in={isCreditCardListShowing}>
-        <div>No cards found</div>
-      </Collapse>
-
-      <div>
-        <Link to={`/create-account/${loggedUser._id}`}>
-          <button id="new-acc-btn">+</button>
-        </Link>
       </div>
     </div>
   );
