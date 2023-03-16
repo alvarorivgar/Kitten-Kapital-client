@@ -17,31 +17,31 @@ function Navbar() {
 
   const inActiveStyles = {
     textDecoration: "none",
+    color: "white"
   };
 
   const handleLogout = () => {
-    // Para hacer logout tenemos que eliminar el token y cambiar los estados de isLoggedIn y loggedUser
     localStorage.removeItem("authToken");
-    authenticateUser(); // Esta funcion automaticamente cambia isLoggedIn y loggedUser cuando no ve el token
-
-    // Redireccion
+    authenticateUser();
     navigate("/");
   };
 
   if (isLoggedIn) {
-    if (loggedUser.role === "admin") { // Admin Navbar
+    if (loggedUser.role === "admin") {
+      // Admin Navbar
       return (
-        <div>
-          <NavLink to="/admin/user-search">Client Search</NavLink>
-          <NavLink to="/admin/create-user">New User</NavLink>
-          <NavLink to="/admin/my-clients">My clients</NavLink>
-          <span onClick={handleLogout}>Log out</span>
+        <div id="admin-navbar" className="navbar">
+          <NavLink to="/admin/user-search" style={toggleStyles}><span>Client Search</span> <img src="../images/search.PNG" alt="search" /></NavLink>
+          <NavLink to="/admin/create-user" style={toggleStyles}><span>New User</span></NavLink>
+          <NavLink to="/admin/my-clients" style={toggleStyles}><span>My clients</span></NavLink>
+          <span className="logout" onClick={handleLogout} >Log out</span>
         </div>
       );
-    } else { // User Navbar
+    } else {
+      // User Navbar
       return (
-        <div>
-          <NavLink to="/user" style={toggleStyles}>
+        <div id="user-navbar" className="navbar">
+          <NavLink to="/user/" style={toggleStyles}>
             Home
           </NavLink>
           <NavLink to="/transaction/create" style={toggleStyles}>
@@ -50,19 +50,25 @@ function Navbar() {
           <NavLink to="/user/profile" style={toggleStyles}>
             Profile
           </NavLink>
-          <span onClick={handleLogout}>Log out</span>
+          <span className="logout" onClick={handleLogout}>Log out</span>
         </div>
       );
     }
   } else {
+    // Anon Navbar
     return (
-      <div>
-        <NavLink to="/" style={toggleStyles}>
-          Home
-        </NavLink>
-        <NavLink to="/login" style={toggleStyles}>
-          Log In
-        </NavLink>
+      <div className="navbar" id="anon-navbar">
+        <div>
+          <img src="../../public/images/logo.png" alt="logo" id="anon-logo" />
+        </div>
+        <div className="navlinks">
+          <NavLink to="/" style={toggleStyles}>
+            Home
+          </NavLink>
+          <NavLink to="/login" style={toggleStyles}>
+            Log In
+          </NavLink>
+        </div>
       </div>
     );
   }
