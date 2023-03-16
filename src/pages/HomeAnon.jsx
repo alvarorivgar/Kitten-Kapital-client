@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 
 function HomeAnon() {
   return (
-    <div className="home-anon">
+    <div>
       <img
+        className="home-anon-img"
         src="https://res.cloudinary.com/dkz1jslyi/image/upload/v1678960941/Kitten%20Kapital/logo-slogan_cxxpsa.png"
         alt="logo"
         id="logo-home"
@@ -30,6 +31,7 @@ function HomeAnon() {
             need a camera to contact one of our managers through a video call.
           </p>
           <img
+          className="home-anon-img"
             src="https://res.cloudinary.com/dkz1jslyi/image/upload/v1678960941/Kitten%20Kapital/business-cat_osxh4v.png"
             alt="cat"
           />

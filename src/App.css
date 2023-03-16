@@ -322,6 +322,11 @@ input[type="radio"]:hover {
   position: fixed;
   top: 0;
   width: 100%;   */
+  color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
+
   }
 
   #anon-logo {
@@ -342,6 +347,10 @@ input[type="radio"]:hover {
     justify-content: space-around;
     align-items: center;
     height: 6.5vh;
+    color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
     /* overflow: hidden;
   position: fixed;
   top: 0;
@@ -349,11 +358,15 @@ input[type="radio"]:hover {
   }
 
   #user-navbar {
-    background-color: #00040f;
+    /* background-color: #00040f; */
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 6.5vh;
+    color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
     /* overflow: hidden;
   position: fixed;
   top: 0;
@@ -404,6 +417,10 @@ input[type="radio"]:hover {
   }
 
   .navbar {
+    color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
     overflow: hidden;
     position: fixed;
     bottom: 0;
@@ -414,6 +431,10 @@ input[type="radio"]:hover {
     position: fixed;
     bottom: 0;
     width: 100%;
+    color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
   }
 
   #user-navbar {
@@ -421,6 +442,10 @@ input[type="radio"]:hover {
     position: fixed;
     bottom: 0;
     width: 100%;
+    color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
   }
   .navbar img {
     display: block;
@@ -487,6 +512,13 @@ input[type="radio"]:hover {
   align-items: left;
 }
 
+.home-anon-img{
+  width: 200px;
+  backdrop-filter: blur(6px);
+}
+
+
+
 #section-one {
   font-size: 30px;
   text-align: left;
@@ -514,9 +546,13 @@ input[type="radio"]:hover {
 footer {
   display: flex;
   justify-content: space-evenly;
-  background-color: #034786;
+  /* background-color: #034786; */
   padding: 15px;
   color: white;
+  color: #fff;
+  border: 1px solid #214d76;;
+  box-shadow: 0px 0px 25px #222;
+  backdrop-filter: blur(5px);
 }
 
 .names {
