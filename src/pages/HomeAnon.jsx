@@ -4,7 +4,7 @@ function HomeAnon() {
   return (
     <div>
       <img
-        className="home-anon-img"
+        className="home-anon-img-logo"
         src="https://res.cloudinary.com/dkz1jslyi/image/upload/v1678960941/Kitten%20Kapital/logo-slogan_cxxpsa.png"
         alt="logo"
         id="logo-home"

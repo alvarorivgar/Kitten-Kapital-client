@@ -408,6 +408,11 @@ input[type="radio"]:hover {
     border-radius: 5px;
     padding: 10px;
   }
+
+  .home-anon-img-logo{
+    width: 25vw;
+    backdrop-filter: blur(6px);
+  }
 }
 /* Mobile */
 @media only screen and (max-width: 768px) {
@@ -505,6 +510,11 @@ input[type="radio"]:hover {
     border-radius: 5px;
     padding: 10px;
   }
+
+  .home-anon-img-logo{
+    width: 75vw;
+    backdrop-filter: blur(6px);
+  }
 }
 
 /* //// Home Anon //// */
@@ -521,6 +531,8 @@ input[type="radio"]:hover {
   width: 200px;
   backdrop-filter: blur(6px);
 }
+
+
 
 
 
@@ -544,7 +556,7 @@ input[type="radio"]:hover {
 }
 
 #logo-home {
-  width: 500px;
+  /* width: 500px; */
   margin-top: 30px;
 }
 
