@@ -33,8 +33,8 @@ function Login() {
       authenticateUser();
 
       // Redireccion
-      
-      navigate("/user")
+
+      navigate("/user");
     } catch (error) {
       if (error.response.status === 400) {
         setErrorMessage(error.response.data.errorMessage);
@@ -45,30 +45,44 @@ function Login() {
   };
 
   return (
-    <div>
-      <h1>Log In</h1>
+    <div className="container">
+      <div className="row justify-content-center pt-5 mt-5 m-1">
+        <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
+          <form onSubmit={handleLogin}>
+            <div className="form-group text-center pt-3">
+              <h1>Log In</h1>
+            </div>
+            {/* <label>ID:</label> */}
+            <div className="form-group mx-sm-4 pt-3">
+              <input
+                className="form-control"
+                type="text"
+                name="idNumber"
+                value={idNumber}
+                placeholder="Introduce your ID"
+                onChange={handleIdNumberChange}
+              />
+            </div>
 
-      <form onSubmit={handleLogin}>
-        <label>ID:</label>
-        <input
-          type="idNumber"
-          name="idNumber"
-          value={idNumber}
-          onChange={handleIdNumberChange}
-        />
+            {/* <label>Password:</label> */}
+            <div className="form-group mx-sm-4 pt-3">
+              <input
+                className="form-control"
+                type="password"
+                name="password"
+                value={password}
+                placeholder="Password"
+                onChange={handlePasswordChange}
+              />
+            </div>
+            <div className="form-group mx-sm-4 pb-4 pt-4">
+              <input type="submit" className="btn btn-block ingresar" value= "Login"></input>
+            </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-
-        {errorMessage !== "" ? <p>{errorMessage}</p> : null}
-
-        <button type="submit">Login</button>
-      </form>
+            {errorMessage !== "" ? <p>{errorMessage}</p> : null}
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
