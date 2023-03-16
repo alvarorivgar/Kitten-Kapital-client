@@ -104,77 +104,104 @@ function VideoCall() {
 
   return (
     <>
-      <h1 style={{ textAlign: "center", color: "#fff" }}>Kitten Kapital</h1>
       <div className="container">
-        <div className="video-container">
-          <div className="video">
-            <video
-              playsInline
-              muted
-              ref={myVideo}
-              autoPlay
-              style={{ width: "300px" }}
-            />
-          </div>
-          <div className="video">
-            {callAccepted && !callEnded ? (
-              <video
-                playsInline
-                ref={userVideo}
-                autoPlay
-                style={{ width: "300px" }}
-              />
-            ) : null}
-          </div>
-        </div>
-        <div className="myId">
-          <textarea
-            id="filled-basic"
-            label="Name"
-            variant="filled"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            style={{ marginBottom: "20px" }}
-          />
-          <CopyToClipboard text={me} style={{ marginBottom: "2rem" }}>
-            <button variant="contained" color="primary">
-              Copy ID
-            </button>
-          </CopyToClipboard>
-
-          <textarea
-            id="filled-basic"
-            label="ID to call"
-            variant="filled"
-            value={idToCall}
-            onChange={(e) => setIdToCall(e.target.value)}
-          />
-          <div className="call-button">
-            {callAccepted && !callEnded ? (
-              <button variant="contained" color="secondary" onClick={leaveCall}>
-                End Call
-              </button>
-            ) : (
-              <button
-                color="primary"
-                aria-label="call"
-                onClick={() => callUser(idToCall)}
-              >
-                Call
-              </button>
-            )}
-            {idToCall}
-          </div>
-        </div>
-        <div>
-          {receivingCall && !callAccepted ? (
-            <div className="caller">
-              <h1>{name} is calling...</h1>
-              <button variant="contained" color="primary" onClick={answerCall}>
-                Answer
-              </button>
+        <div className="row justify-content-center pt-1 mt-1 m-1">
+          <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
+            <div className="form-group text-center pt-3">
+              <div className="form-group text-center pt-1">
+                <h1>Kitten Kapital</h1>
+              </div>
+              <div className="container">
+                <div className="video-container">
+                  <div className="video">
+                    <video
+                      playsInline
+                      muted
+                      ref={myVideo}
+                      autoPlay
+                      style={{ width: "150px" }}
+                    />
+                  </div>
+                  <div className="video">
+                    {callAccepted && !callEnded ? (
+                      <video
+                        playsInline
+                        ref={userVideo}
+                        autoPlay
+                        style={{ width: "150px" }}
+                      />
+                    ) : null}
+                  </div>
+                </div>
+                <div className="form-group mx-sm-4 pt-3">
+                  <input
+                    className="form-control"
+                    id="filled-basic"
+                    label="Name"
+                    variant="filled"
+                    value={name}
+                    placeholder="Introduce your name"
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                  <CopyToClipboard
+                    text={me}
+                    // style={{ marginBottom: "2rem" }}
+                  >
+                    <div className="form-group mx-sm-4 pb-2 pt-3">
+                      <button className="btn btn-block ingresar">
+                        Copy ID
+                      </button>
+                    </div>
+                  </CopyToClipboard>
+                  <div className="form-group mx-sm-4 pt-1">
+                    <input
+                      className="form-control"
+                      id="filled-basic"
+                      label="ID to call"
+                      variant="filled"
+                      value={idToCall}
+                      placeholder="Paste the code"
+                      onChange={(e) => setIdToCall(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group mx-sm-4 pb-2 pt-3">
+                    {callAccepted && !callEnded ? (
+                      <button
+                        className="btn btn-block ingresar"
+                        variant="contained"
+                        onClick={leaveCall}
+                      >
+                        End Call
+                      </button>
+                    ) : (
+                      <button
+                        className="btn btn-block ingresar"
+                        aria-label="call"
+                        onClick={() => callUser(idToCall)}
+                      >
+                        Call
+                      </button>
+                    )}
+                    {/* {idToCall} */}
+                  </div>
+                </div>
+                <div>
+                  {receivingCall && !callAccepted ? (
+                    <div className="form-group mx-sm-4 pb-2 pt-3">
+                      <p class="date-of-birth-text">{name} is calling...</p>
+                      <button
+                        className="btn btn-block ingresar"
+                        variant="contained"
+                        onClick={answerCall}
+                      >
+                        Answer
+                      </button>
+                    </div>
+                  ) : null}
+                </div>
+              </div>
             </div>
-          ) : null}
+          </div>
         </div>
       </div>
     </>
