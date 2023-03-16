@@ -52,7 +52,12 @@ function UserDetails() {
   }
 
   return (
-    <div>
+    <div className="container">
+      <div className="row justify-content-center pt-2 mt-2 m-1">
+        <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
+
+      
+     
       <h2>
         {user.firstName} {user.lastName}
       </h2>
@@ -67,8 +72,8 @@ function UserDetails() {
         {accounts.map((account) => {
           return (
             <>
-              <Link key={account._id} to={`/user/${account._id}/details`}>
-                <li>{account._id}</li>
+              <Link key={account._id} to={`/user/${account._id}/details`} >
+                <p>{account._id}</p>
               </Link>
             </>
           );
@@ -77,10 +82,14 @@ function UserDetails() {
       <br />
       {errorMessage !== "" ? <p>{errorMessage}</p> : null}
       <br />
-      <button onClick={handleDeleteUser}>Delete User</button>
+      <button onClick={handleDeleteUser} className="btn btn-block ingresar">Delete User</button>
+      <span>   </span>
       <Link to={`/create-account/${user._id}`}>
-        <button>Add Account</button>
+        <button className="btn btn-block ingresar">Add Account</button>
       </Link>
+      </div>
+         
+      </div>
     </div>
   );
 }

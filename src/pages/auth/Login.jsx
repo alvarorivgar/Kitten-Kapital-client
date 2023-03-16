@@ -55,7 +55,7 @@ function Login() {
                 type="text"
                 name="idNumber"
                 value={idNumber}
-                placeholder="Introduce your ID"
+                placeholder="ID"
                 onChange={handleIdNumberChange}
               />
             </div>

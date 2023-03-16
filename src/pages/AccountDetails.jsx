@@ -99,12 +99,15 @@ function AccountDetails() {
   }
 
   return (
-    <div>
+    <div className="container">
+      <div className="row justify-content-center pt-2 mt-2 m-1">
+        <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
       <div>
         <p>{account.accountName}</p>
         <p>
-          <span>{account._id}</span> <span>{account.balance / 100 }€</span>
+          IBAN: {account._id} 
         </p>
+        <p>Balance: {account.balance / 100 }€</p>
       </div>
       <div>
         <>
@@ -224,6 +227,7 @@ function AccountDetails() {
           </Modal>
         </>
       </div>
+      <br />
       <div>
         <h3>Movements</h3>
         {transactionList.map((transaction) => {
@@ -241,7 +245,9 @@ function AccountDetails() {
       <br />
       {errorMessage !== "" ? <p>{errorMessage}</p> : null}
       <br />
-      <button onClick={handleDeleteAccount}>Delete Account</button>
+      <button onClick={handleDeleteAccount} className="btn btn-block ingresar">Delete Account</button>
+    </div>
+    </div>
     </div>
   );
 }
