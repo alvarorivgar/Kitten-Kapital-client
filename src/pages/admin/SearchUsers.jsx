@@ -3,12 +3,10 @@ import SearchUserForm from "../../components/SearchUserForm";
 import { getAllUsersService } from "../../services/admin.services";
 import { BallTriangle } from "react-loading-icons";
 
-
 function Search() {
   const [userList, setUserList] = useState([]);
   const [userListToDisplay, setUserListToDisplay] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
-
 
   useEffect(() => {
     getData();
@@ -20,7 +18,7 @@ function Search() {
 
       setUserList(response.data);
       setUserListToDisplay(response.data);
-      setIsFetching(false)
+      setIsFetching(false);
     } catch (error) {}
   };
 
@@ -40,22 +38,34 @@ function Search() {
     return <BallTriangle />;
   }
 
-
   return (
-    <div>
-      <h1>Client Search</h1>
+    <div className="container">
+      <div className="row justify-content-center pt-2 mt-2 m-1">
+        <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
+          <h1>Client Search</h1>
 
-      <SearchUserForm filterUsers={filterUsers} />
+          <SearchUserForm filterUsers={filterUsers} />
+        </div>
+      </div>
       <hr />
-      {userListToDisplay.map((user) => {
-        return (
-          <div key={user._id}>
-            <p>{user.idNumber}</p>
-            <span>{user.firstName} </span>
-            <span>{user.lastName}</span>
-          </div>
-        );
-      })}
+      <div className="d-flex justify-content-center">
+        <table>
+          {userListToDisplay.map((user) => {
+            return (
+              <div>
+                <div key={user._id}>
+                  <div class="d-flex justify-content-left btn btn-block ingresar align-items-center">
+                    <span>{user.idNumber}</span>
+                    <span className="ms-4">{user.firstName} </span>
+                    <span className="ms-1">{user.lastName}</span>
+                  </div>
+                  <hr />
+                </div>
+              </div>
+            );
+          })}
+        </table>
+      </div>
     </div>
   );
 }

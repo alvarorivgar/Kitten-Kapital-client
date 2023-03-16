@@ -9,11 +9,13 @@ function SearchUserForm(props) {
   };
 
   return (
-    <div>
+    <div className="form-group mx-sm-4 pt-3">
       <input
+        className="form-control"
         type="text"
         name="search"
         value={searchInput}
+        placeholder="Introduce Id, first name or last name to search"
         onChange={handleSearch}
       />
     </div>
