@@ -97,11 +97,11 @@ function CreateTransferForm() {
                     <select
                       className="form-control"
                       name="originAccount"
-                      defaultValue="clcik to select your origin Account"
+                      defaultValue="Select your origin Account"
                       onChange={handleOriginAccountChange}
                     >
-                      <option value="clcik to select your origin Account">
-                        clcik to select your origin Account
+                      <option value="Select your origin Account">
+                        Select origin Account
                       </option>
                       {checkingAccountsList.map((eachAccount) => {
                         return (
@@ -123,11 +123,11 @@ function CreateTransferForm() {
                     <select
                       className="form-control"
                       name="originAccount"
-                      defaultValue="clcik to select your origin Account"
+                      defaultValue="Select your origin Account"
                       onChange={handleOriginAccountChange}
                     >
-                      <option value="clcik to select your origin Account">
-                        clcik to select your origin Account
+                      <option value="Select your origin Account">
+                        Select your origin Account
                       </option>
                       {kittyAccountsList.map((eachAccount) => {
                         return (
