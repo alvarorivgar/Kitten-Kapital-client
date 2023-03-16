@@ -280,3 +280,76 @@ input[type="radio"]:hover {
   background: rgba(255, 255, 255, 0.6);
   filter: blur(750px);
 }
+
+
+/* //// NavBar //// */
+
+.navbar {
+  background-color: #00040f;
+}
+
+#anon-logo {
+  width: 25vw;
+}
+
+.navlinks {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 20vw;
+  height: 5vh;
+}
+
+#admin-navbar {
+  background-color: #00040f;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 6.5vh;
+}
+
+#user-navbar {
+  background-color: #00040f;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 6.5vh;
+}
+
+.logout {
+  color: red;
+}
+
+.navbar img {
+  display: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .navbar img {
+    display: block;
+  }
+
+  .navbar span {
+    display: none;
+  }
+}
+
+/* //// Home Anon //// */
+
+
+
+
+
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+ 
+}
