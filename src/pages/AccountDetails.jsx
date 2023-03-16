@@ -15,6 +15,8 @@ import { getAccountTransactionsService } from "../services/transfer.services";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Form } from "react-bootstrap";
+import { BallTriangle } from "react-loading-icons";
+
 
 function AccountDetails() {
   const navigate = useNavigate();
@@ -93,7 +95,7 @@ function AccountDetails() {
   const handleShow = () => setShow(true);
 
   if (isFetching) {
-    return <h2>Spinner...</h2>;
+    return <BallTriangle />;
   }
 
   return (

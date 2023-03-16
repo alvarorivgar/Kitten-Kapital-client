@@ -8,6 +8,7 @@ import {
   createTransactionService,
   transferService,
 } from "../services/transfer.services";
+import { BallTriangle } from "react-loading-icons";
 
 function CreateTransferForm() {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ function CreateTransferForm() {
   const [subject, setSubject] = useState("");
   const [checkingAccountsList, setCheckingAccountsList] = useState([]);
   const [kittyAccountsList, setKittyAccountsList] = useState([]);
+  const [isFetching, setIsFetching] = useState(true);
 
   const handleOriginAccountChange = (e) => setOriginAccount(e.target.value);
   const handleDestinationAccountChange = (e) =>
@@ -40,6 +42,7 @@ function CreateTransferForm() {
         const response = await getKittyAccountsService(loggedUser._id);
         setKittyAccountsList(response.data);
       }
+      setIsFetching(false);
     } catch (error) {
       console.log(error);
     }
@@ -71,6 +74,10 @@ function CreateTransferForm() {
       }
     }
   };
+
+  if (isFetching) {
+    return <BallTriangle />;
+  }
 
   return (
     <div>

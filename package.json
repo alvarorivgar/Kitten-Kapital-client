@@ -12,6 +12,7 @@
     "react-bootstrap": "^2.7.2",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
+    "react-loading-icons": "^1.1.0",
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
     "simple-peer": "^9.11.1",

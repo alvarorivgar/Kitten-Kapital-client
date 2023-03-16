@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getKittyAccountsService } from "../services/kitty.services";
 import { getUserService } from "../services/user.services";
+import { BallTriangle } from "react-loading-icons";
 
 function Home() {
   const [isFetching, setIsFetching] = useState(true);
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
   const [accountList, setAccountList] = useState([]);
   const { loggedUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -20,12 +21,12 @@ function Home() {
   const getData = async () => {
     try {
       if (loggedUser.role === "admin") {
-        navigate("/admin/my-clients")
+        navigate("/admin/my-clients");
       }
 
-      const foundUser = await getUserService(loggedUser._id)
-      setUser(foundUser.data)
-      let foundAccounts
+      const foundUser = await getUserService(loggedUser._id);
+      setUser(foundUser.data);
+      let foundAccounts;
       loggedUser.role === "user"
         ? (foundAccounts = await getCheckingAccountsService(loggedUser._id))
         : (foundAccounts = await getKittyAccountsService(loggedUser._id));
@@ -37,7 +38,7 @@ function Home() {
   };
 
   if (isFetching) {
-    return <h2>Searching...</h2>;
+    return <BallTriangle />;
   }
 
   return (
@@ -60,7 +61,9 @@ function Home() {
       </div>
 
       <div>
-        <Link to={`/create-account/${loggedUser._id}`}><button>+</button></Link>
+        <Link to={`/create-account/${loggedUser._id}`}>
+          <button>+</button>
+        </Link>
       </div>
     </div>
   );

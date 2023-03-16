@@ -4,6 +4,8 @@ import { deleteUserService } from "../../services/admin.services";
 import { getCheckingAccountsService } from "../../services/checking.services";
 import { getKittyAccountsService } from "../../services/kitty.services";
 import { getUserService } from "../../services/user.services";
+import { BallTriangle } from "react-loading-icons";
+
 
 function UserDetails() {
   const navigate = useNavigate();
@@ -46,7 +48,7 @@ function UserDetails() {
   };
 
   if (isFetching) {
-    return <h2>Searching...</h2>;
+    return <BallTriangle />
   }
 
   return (

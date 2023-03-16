@@ -11,6 +11,7 @@ import {
   editUserPasswordService,
   getUserService,
 } from "../services/user.services";
+import { BallTriangle } from "react-loading-icons";
 
 function Profile() {
   const navigate = useNavigate();
@@ -24,7 +25,6 @@ function Profile() {
 
   useEffect(() => {
     getData();
-    console.log("hola");
   }, []);
 
   const getData = async () => {
@@ -84,7 +84,7 @@ function Profile() {
   };
 
   if (isFetching) {
-    return <h2>Spinner...</h2>;
+    return <BallTriangle />;
   }
 
   return (

@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import SearchUserForm from "../../components/SearchUserForm";
 import { getAllUsersService } from "../../services/admin.services";
+import { BallTriangle } from "react-loading-icons";
+
 
 function Search() {
   const [userList, setUserList] = useState([]);
   const [userListToDisplay, setUserListToDisplay] = useState([]);
+  const [isFetching, setIsFetching] = useState(true);
+
 
   useEffect(() => {
     getData();
@@ -16,6 +20,7 @@ function Search() {
 
       setUserList(response.data);
       setUserListToDisplay(response.data);
+      setIsFetching(false)
     } catch (error) {}
   };
 
@@ -30,6 +35,11 @@ function Search() {
 
     setUserListToDisplay(filteredUsers);
   };
+
+  if (isFetching) {
+    return <BallTriangle />;
+  }
+
 
   return (
     <div>

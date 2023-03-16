@@ -1,12 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/auth.context";
 import { getAllMyClientsService } from "../../services/admin.services";
+import { BallTriangle } from "react-loading-icons";
 
 function MyClients() {
   const [isFetching, setIsFetching] = useState(true);
   const [myClientsList, setMyClientsList] = useState([]);
-  const { loggedUser, isAdmin, authenticateUser } = useContext(AuthContext);
 
   useEffect(() => {
     getData();
@@ -23,7 +22,7 @@ function MyClients() {
   };
 
   if (isFetching) {
-    return <h2>Searching...</h2>;
+    return <BallTriangle />;
   }
 
   return (

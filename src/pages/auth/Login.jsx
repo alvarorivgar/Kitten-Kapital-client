@@ -5,7 +5,7 @@ import { loginService } from "../../services/auth.services";
 import { AuthContext } from "../../context/auth.context";
 
 function Login() {
-  const { authenticateUser, loggedUser } = useContext(AuthContext);
+  const { authenticateUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -26,13 +26,9 @@ function Login() {
     try {
       const response = await loginService(user);
 
-      // Recibir el token del backen y almacenarlo
       localStorage.setItem("authToken", response.data.authToken);
 
-      // Establecer el contexto para decirle a toda la app que el usuario esta activo
       authenticateUser();
-
-      // Redireccion
 
       navigate("/user");
     } catch (error) {
@@ -76,7 +72,11 @@ function Login() {
               />
             </div>
             <div className="form-group mx-sm-4 pb-4 pt-4">
-              <input type="submit" className="btn btn-block ingresar" value= "Login"></input>
+              <input
+                type="submit"
+                className="btn btn-block ingresar"
+                value="Login"
+              ></input>
             </div>
 
             {errorMessage !== "" ? <p>{errorMessage}</p> : null}
