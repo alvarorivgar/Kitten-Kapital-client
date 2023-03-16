@@ -306,6 +306,10 @@ input[type="radio"]:hover {
   justify-content: space-between;
 }
 
+.link-button{
+  text-decoration: none;
+}
+
 .link:hover{
   color: lightblue;
 }
@@ -369,7 +373,7 @@ input[type="radio"]:hover {
   }
 
   .acc-collapse {
-    width: 90vw;
+    /* width: 90vw; */
     text-align: left;
     margin: 50px 5% 10px 5%;
     background-color: #214d76;
@@ -379,7 +383,7 @@ input[type="radio"]:hover {
   }
   
   .home-acc-list {
-    width: 90vw;
+    /* width: 90vw; */
     margin: 10px 5%;
     background-color: #386188;
     color: white;
@@ -454,7 +458,7 @@ input[type="radio"]:hover {
   }
 
   .acc-collapse {
-    width: 90vw;
+    /* width: 90vw; */
     text-align: left;
     margin: 5%;
     background-color: #214d76;
@@ -464,7 +468,7 @@ input[type="radio"]:hover {
   }
   
   .home-acc-list {
-    width: 90vw;
+    /* width: 90vw; */
     margin: 5%;
     background-color: #386188;
     color: white;
