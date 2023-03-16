@@ -1,3 +1,486 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,500&display=swap");
+
 .App {
   text-align: center;
+}
+body {
+  /* background-image: url("../public/img/1GcNkBU.jpg"); */
+  /* background-image: url("../public/img/65thfiw.png"); */
+  /* background-image: url("../public/img/zNDAOQ.jpg"); */
+  background-image: url("../public/img/pX3WLr.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+/* Credit card styles */
+.wrapper {
+  max-width: 460px;
+  box-shadow: 3px 3px 5px #1b1b1ba2;
+}
+
+.card {
+  background-color: #413f3f;
+}
+
+#card-Background {
+  background-color: #413f3f;
+}
+
+p {
+  margin: 0px;
+}
+
+.h8 {
+  font-size: 25px;
+  font-weight: 600;
+  color: white;
+}
+
+.card .atm {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.card .visa {
+  width: 50px;
+  height: 20px;
+  object-fit: fill;
+}
+
+.card .master {
+  width: 50px;
+  height: 50px;
+  object-fit: fill;
+}
+
+.debit-card {
+  width: 100%;
+  height: 180px;
+  padding: 20px;
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px #0000001a;
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+}
+
+.debit-card:hover {
+  box-shadow: 5px 3px 5px #000000a2;
+}
+
+.card-2 {
+  background-color: #21d4fd;
+  background-image: linear-gradient(116deg, #21d4fd 0%, #b721ff 100%);
+}
+
+.text-muted {
+  font-size: 0.8rem;
+}
+
+.text-white {
+  font-size: 14px;
+}
+
+.input {
+  position: absolute;
+  top: 6px;
+  right: 0;
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #eee;
+  position: relative;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+input[type="radio"]:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f00c";
+  color: #fff;
+  font-size: 15px;
+  display: none;
+}
+
+input[type="radio"]:checked,
+input[type="radio"]:checked:hover {
+  background-color: blue;
+}
+
+input[type="radio"]:checked::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="radio"]:hover {
+  background-color: #ddd;
+}
+
+.btnCard {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #0093e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0093e9;
+  transition: all 0.5s ease;
+  font-weight: 500;
+  border-radius: 10px;
+}
+
+.card-addMoney-form {
+  height: 50px;
+  border: 1px solid #0093e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.btnCard:hover {
+  color: #fff;
+  background-color: #0093e9;
+}
+
+.card-Number-Form {
+  width: 155px;
+}
+.card-Date-Form {
+  width: 50px;
+}
+
+/* //////////////////////////   */
+/* Formulary style */
+
+.formulario {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
+  color: white;
+}
+
+.form-control {
+  background: rgba(0, 0, 0, 0.3);
+  border-style: none;
+  transition: 0.5s ease-in;
+  outline: none;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  background: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: white;
+}
+
+.ingresar {
+  background: #222a3f;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 700 !important;
+  color: white;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
+  transition: 0.5s ease-in;
+}
+
+.ingresar:hover {
+  color: white;
+}
+
+.bg-gray-gradient {
+  background: linear-gradient(
+    153.47deg,
+    rgba(255, 255, 255, 0) -341.94%,
+    #14101d 95.11%
+  );
+}
+
+.bg-discount-gradient {
+  background: linear-gradient(125.17deg, #272727 0%, #11101d 100%);
+}
+
+.box-shadow {
+  box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+}
+
+.sidebar {
+  -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.feature-card:hover {
+  background: var(--black-gradient);
+  box-shadow: var(--card-shadow);
+}
+
+.feedback-container .feedback-card:last-child {
+  margin-right: 0px;
+}
+
+.feedback-card {
+  background: transparent;
+}
+
+.feedback-card:hover {
+  background: var(--black-gradient);
+}
+
+.blue__gradient {
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+  filter: blur(123px);
+}
+
+.pink__gradient {
+  background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
+  filter: blur(900px);
+}
+
+.white__gradient {
+  background: rgba(255, 255, 255, 0.6);
+  filter: blur(750px);
+}
+
+#new-acc-btn {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  align-items: center;
+  border: white solid;
+  background-color: #214d76;
+  margin-top: 40px;
+}
+
+
+
+.link {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link:hover{
+  color: lightblue;
+}
+
+/* //// Big Screen //// */
+@media only screen and (max-width: 2000px) {
+  .navbar {
+    /* background-color: #3E5596; */
+    /* overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;   */
+  }
+
+  #anon-logo {
+    width: 25vw;
+  }
+
+  .navlinks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 20vw;
+    height: 5vh;
+  }
+
+  #admin-navbar {
+    /* background-color: #00040f; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 6.5vh;
+    /* overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%; */
+  }
+
+  #user-navbar {
+    background-color: #00040f;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 6.5vh;
+    /* overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%; */
+  }
+
+  .logout {
+    color: red;
+  }
+
+  .navbar img {
+    display: none;
+  }
+
+  #home-header {
+    display: none;
+  }
+
+  .acc-collapse {
+    width: 90vw;
+    text-align: left;
+    margin: 50px 5% 10px 5%;
+    background-color: #214d76;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .home-acc-list {
+    width: 90vw;
+    margin: 10px 5%;
+    background-color: #386188;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+}
+/* Mobile */
+@media only screen and (max-width: 768px) {
+  body {
+    /* background-image: url("../public/img/1GcNkBU.jpg"); */
+    background-image: url("../public/img/65thfiw.png");
+    /* background-image: url("../public/img/zNDAOQ.jpg"); */
+    /* background-image: url("../public/img/pX3WLr.webp"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .navbar {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  #admin-navbar {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  #user-navbar {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .navbar img {
+    display: block;
+    width: 40px;
+    margin: 0;
+  }
+
+  .navbar span {
+    display: none;
+  }
+
+  .navlinks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 35vw;
+    height: 5vh;
+  }
+
+  #anon-logo {
+    width: 25vw;
+  }
+
+  #home-header {
+    display: flex;
+    margin: 15px;
+    align-items: center;
+    color: white;
+  }
+
+  #home-header img {
+    width: 40px;
+    margin-right: 30px;
+    border-radius: 50%;
+  }
+
+  .acc-collapse {
+    width: 90vw;
+    text-align: left;
+    margin: 5%;
+    background-color: #214d76;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .home-acc-list {
+    width: 90vw;
+    margin: 5%;
+    background-color: #386188;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+}
+
+/* //// Home Anon //// */
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
 }

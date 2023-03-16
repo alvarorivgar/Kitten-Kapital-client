@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import CreateAccountForm from './components/CreateAccountForm';
+import CreateAccountForm from "./components/CreateAccountForm";
 import CreateAdminForm from "./components/CreateAdminForm";
 import CreateTransferForm from "./components/CreateTransferForm";
 import CreateUserForm from "./components/CreateUserForm";
@@ -13,12 +13,12 @@ import Login from "./pages/auth/Login";
 import HomeAnon from "./pages/HomeAnon";
 import HomeLogged from "./pages/HomeLogged";
 import Profile from "./pages/Profile";
+import "bootstrap/dist/css/bootstrap.min.css";
+import VideoCall from "./pages/VideoCall";
 
 function App() {
-
   return (
     <div className="App">
-
       <Navbar />
 
       <Routes>
@@ -35,6 +35,7 @@ function App() {
         <Route path="/create-account/:userId" element={<CreateAccountForm />} />
         <Route path="/transaction/create" element={<CreateTransferForm />} />
         <Route path="/user/:accountId/details" element={<AccountDetails />} />
+        <Route path="/video" element={<VideoCall />} />
       </Routes>
     </div>
   );

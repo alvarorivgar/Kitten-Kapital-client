@@ -16,9 +16,14 @@ const deleteCheckingAccountService = (accountId) => {
     return service.delete(`/checking/${accountId}/delete`)
 }
 
+const addMoneyCheckingService = (accountId, moneyToAdd)=>{
+    return service.patch(`checking/${accountId}/add-money`, moneyToAdd)
+}
+
 export {
     createCheckingAccountService,
     getCheckingAccountsService,
     getSingleCheckingAccountDetailsService,
-    deleteCheckingAccountService
+    deleteCheckingAccountService,
+    addMoneyCheckingService
 }

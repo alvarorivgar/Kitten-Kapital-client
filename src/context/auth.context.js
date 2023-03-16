@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { verifyService } from "../services/auth.services";
+import { BallTriangle } from "react-loading-icons";
 
 const AuthContext = createContext();
 
@@ -50,7 +51,7 @@ function AuthWrapper(props) {
   };
 
   useEffect(() => {
-    authenticateUser(); // Autentica cuando entras a la pagina o la refrescas
+    authenticateUser();
   }, []);
 
   const passedContext = {
@@ -66,7 +67,7 @@ function AuthWrapper(props) {
   if (isFetching) {
     return (
       <div className="App">
-        <h2>Validating user...</h2>
+        <BallTriangle />
       </div>
     );
   }

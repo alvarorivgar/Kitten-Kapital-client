@@ -12,8 +12,8 @@ function CreateAccountForm() {
   const { userId } = useParams();
   const [errorMessage, setErrorMessage] = useState("");
   const [accountName, setAccountName] = useState("");
-  const [transferFee, setTransferFee] = useState(5);
-  const [maintenanceFee, setMaintenanceFee] = useState(2);
+  const [transferFee, setTransferFee] = useState("5");
+  const [maintenanceFee, setMaintenanceFee] = useState("2");
   const [penaltyFee, setPenaltyFee] = useState(1);
   const [minimumBalance, setMinimumBalance] = useState(5);
 
@@ -37,7 +37,7 @@ function CreateAccountForm() {
       const foundUser = await getUserService(userId);
 
       console.log(foundUser);
-       
+
       if (foundUser.data.role === "user") {
         await createCheckingAccountService(userId, newAccount);
       } else {
@@ -57,76 +57,110 @@ function CreateAccountForm() {
   };
 
   return (
-    <div>
-      {isLoggedIn === false ? (
-        <Navigate to="/login" />
-      ) : isAdmin === true ? (
-        <div>
-          <h3>soy un admin hola</h3>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="accountName">Account Name</label>
-            <input
-              type="text"
-              name="accountName"
-              value={accountName}
-              onChange={handleAccountNameChange}
-            />
-            <br />
-            <label htmlFor="transferFee">Transfer Fee</label>
-            <input
-              type="number"
-              name="transferFee"
-              value={transferFee}
-              onChange={handleTransferFeeChange}
-            />
-            <br />
-            <label htmlFor="maintenanceFee">Maintenance Fee</label>
-            <input
-              type="number"
-              name="maintenanceFee"
-              value={maintenanceFee}
-              onChange={handleMaintenanceFeeChange}
-            />
-            <br />
-            <label htmlFor="penaltyFee">Penalty Fee</label>
-            <input
-              type="number"
-              name="penaltyFee"
-              value={penaltyFee}
-              onChange={handlePenaltyFeeChange}
-            />
-            <br />
-            <label htmlFor="minimumBalance">Minimum Balance</label>
-            <input
-              type="number"
-              name="minimumBalance"
-              value={minimumBalance}
-              onChange={handleMinimumBalanceChange}
-            />
-            <br />
-            {errorMessage !== "" ? <p>{errorMessage}</p> : null}
-            <br />
-            <button type="submit">Agregar</button>
-          </form>
+    <div className="container">
+      <div className="row justify-content-center pt-2 mt-2 m-1">
+        <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
+          {isLoggedIn === false ? (
+            <Navigate to="/login" />
+          ) : isAdmin === true ? (
+            <div>
+              <div className="form-group text-center pt-3">
+                <h1>Create an account</h1>
+              </div>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group mx-sm-4 pt-3">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="accountName"
+                    value={accountName}
+                    placeholder="Account Name"
+                    onChange={handleAccountNameChange}
+                  />
+                </div>
+                <div className="form-group mx-sm-4 pt-3">
+                  <label htmlFor="transferFee">Transfer Fee</label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    name="transferFee"
+                    value={transferFee}
+                    placeholder="5€ by default"
+                    onChange={handleTransferFeeChange}
+                  />
+                </div>
+                <div className="form-group mx-sm-4 pt-3">
+                  <label htmlFor="maintenanceFee">Maintenance Fee</label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    name="maintenanceFee"
+                    value={maintenanceFee}
+                    placeholder="2€ by default"
+                    onChange={handleMaintenanceFeeChange}
+                  />
+                </div>
+                <div className="form-group mx-sm-4 pt-3">
+                  <label htmlFor="penaltyFee">Penalty Fee</label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    name="penaltyFee"
+                    value={penaltyFee}
+                    placeholder="1€ by default"
+                    onChange={handlePenaltyFeeChange}
+                  />
+                </div>
+                <div className="form-group mx-sm-4 pt-3">
+                  <label htmlFor="minimumBalance">Minimum Balance</label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    name="minimumBalance"
+                    value={minimumBalance}
+                    placeholder="5€ by default"
+                    onChange={handleMinimumBalanceChange}
+                  />
+                </div>
+                <div className="form-group mx-sm-4 pb-4 pt-4">
+                  <button type="submit" className="btn btn-block ingresar">
+                    Agregar
+                  </button>
+                </div>
+                {errorMessage !== "" ? (
+                  <p class="date-of-birth-text">{errorMessage}</p>
+                ) : null}
+              </form>
+            </div>
+          ) : (
+            <div>
+              <div className="form-group text-center pt-3">
+                <h1>Create an account</h1>
+              </div>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group mx-sm-4 pt-3">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="accountName"
+                    value={accountName}
+                    placeholder="Account Name"
+                    onChange={handleAccountNameChange}
+                  />
+                </div>
+                <div className="form-group mx-sm-4 pb-4 pt-4">
+                  <button type="submit" className="btn btn-block ingresar">
+                    Agregar
+                  </button>
+                </div>
+                {errorMessage !== "" ? (
+                  <p class="date-of-birth-text">{errorMessage}</p>
+                ) : null}
+              </form>
+            </div>
+          )}
         </div>
-      ) : (
-        <div>
-          <h3>Soy un user o un kitten, hola</h3>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="accountName">Account Name</label>
-            <input
-              type="text"
-              name="accountName"
-              value={accountName}
-              onChange={handleAccountNameChange}
-            />
-            <br />
-            {errorMessage !== "" ? <p>{errorMessage}</p> : null}
-            <br />
-            <button type="submit">Agregar</button>
-          </form>
-        </div>
-      )}
+      </div>
     </div>
   );
 }
