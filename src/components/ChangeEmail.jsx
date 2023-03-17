@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { editUserDetailsService } from "../services/user.services";
 
 function ChangeEmail(props) {
   const [email, setEmail] = useState("");
@@ -33,7 +31,7 @@ function ChangeEmail(props) {
               />
             </div>
             <div className="form-group mx-sm-4 pb-4 pt-4">
-            <button className="btn btn-block ingresar">Update</button>
+              <button className="btn btn-block ingresar">Update</button>
             </div>
           </form>
         </div>

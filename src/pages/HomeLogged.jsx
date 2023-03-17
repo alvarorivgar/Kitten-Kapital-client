@@ -38,7 +38,7 @@ function Home() {
       setAccountList(foundAccounts.data);
       setIsFetching(false);
     } catch (error) {
-      console.log(error);
+      navigate("/error");
     }
   };
 
@@ -55,7 +55,7 @@ function Home() {
       <div className="container">
         <div className="row justify-content-center pt-2 mt-2 m-1">
           <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
-            <div 
+            <div
               className="acc-collapse ingresar d-flex align-items-center"
               onClick={() => setIsAccountListShowing(!isAccountListShowing)}
             >
@@ -108,7 +108,9 @@ function Home() {
 
             <div>
               <Link to={`/create-account/${loggedUser._id}`}>
-                <button id="new-acc-btn" className="ingresar">+</button>
+                <button id="new-acc-btn" className="ingresar">
+                  +
+                </button>
               </Link>
             </div>
           </div>

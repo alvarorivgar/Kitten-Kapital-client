@@ -51,7 +51,7 @@ function CreateUserForm() {
 
   return (
     <div>
-      {/* only show the render if is logged like admin */}
+      {/* only show the render if is logged as admin */}
       {isLoggedIn === false || isAdmin === false ? (
         <Navigate to="/login" />
       ) : (

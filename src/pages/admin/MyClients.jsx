@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAllMyClientsService } from "../../services/admin.services";
 import { BallTriangle } from "react-loading-icons";
 
 function MyClients() {
+  const navigate = useNavigate();
   const [isFetching, setIsFetching] = useState(true);
   const [myClientsList, setMyClientsList] = useState([]);
 
@@ -17,7 +18,7 @@ function MyClients() {
       setMyClientsList(clients.data);
       setIsFetching(false);
     } catch (error) {
-      console.log(error);
+      navigate("/error");
     }
   };
 

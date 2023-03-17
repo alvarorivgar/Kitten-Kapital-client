@@ -54,10 +54,11 @@ function Search() {
           {userListToDisplay.map((user) => {
             return (
               <div>
-                <Link 
-                className="link-button"
-                key={user._id}
-                to={`/admin/user-details/${user._id}`}>
+                <Link
+                  className="link-button"
+                  key={user._id}
+                  to={`/admin/user-details/${user._id}`}
+                >
                   <div class="d-flex justify-content-left btn btn-block ingresar align-items-center">
                     <span>{user.idNumber}</span>
                     <span className="ms-4">{user.firstName} </span>

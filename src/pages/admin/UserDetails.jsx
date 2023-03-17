@@ -6,7 +6,6 @@ import { getKittyAccountsService } from "../../services/kitty.services";
 import { getUserService } from "../../services/user.services";
 import { BallTriangle } from "react-loading-icons";
 
-
 function UserDetails() {
   const navigate = useNavigate();
   const { userId } = useParams();
@@ -48,47 +47,49 @@ function UserDetails() {
   };
 
   if (isFetching) {
-    return <BallTriangle />
+    return <BallTriangle />;
   }
 
   return (
     <div className="container">
       <div className="row justify-content-center pt-2 mt-2 m-1">
         <div className="col-md-6 col-sm-6 col-xl-6 col-lg-4 formulario">
+          <h2>
+            {user.firstName} {user.lastName}
+          </h2>
 
-      
-     
-      <h2>
-        {user.firstName} {user.lastName}
-      </h2>
-
-      <p>ID: {user.idNumber}</p>
-      <p>Email: {user.email}</p>
-      <p>Date of Birth: {user.dob}</p>
-      <p>Client type: {user.role}</p>
-      <p>Manager: {user.manager.fullName}</p>
-      <ul>
-        <p>Accounts:</p>
-        {accounts.map((account) => {
-          return (
-            <>
-              <Link key={account._id} to={`/user/${account._id}/details`} className="link-white">
-                <p>{account._id}</p>
-              </Link>
-            </>
-          );
-        })}
-      </ul>
-      <br />
-      {errorMessage !== "" ? <p>{errorMessage}</p> : null}
-      <br />
-      <button onClick={handleDeleteUser} className="btn btn-block ingresar">Delete User</button>
-      <span>   </span>
-      <Link to={`/create-account/${user._id}`}>
-        <button className="btn btn-block ingresar">Add Account</button>
-      </Link>
-      </div>
-         
+          <p>ID: {user.idNumber}</p>
+          <p>Email: {user.email}</p>
+          <p>Date of Birth: {user.dob}</p>
+          <p>Client type: {user.role}</p>
+          <p>Manager: {user.manager.fullName}</p>
+          <ul>
+            <p>Accounts:</p>
+            {accounts.map((account) => {
+              return (
+                <>
+                  <Link
+                    key={account._id}
+                    to={`/user/${account._id}/details`}
+                    className="link-white"
+                  >
+                    <p>{account._id}</p>
+                  </Link>
+                </>
+              );
+            })}
+          </ul>
+          <br />
+          {errorMessage !== "" ? <p>{errorMessage}</p> : null}
+          <br />
+          <button onClick={handleDeleteUser} className="btn btn-block ingresar">
+            Delete User
+          </button>
+          <span> </span>
+          <Link to={`/create-account/${user._id}`}>
+            <button className="btn btn-block ingresar">Add Account</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

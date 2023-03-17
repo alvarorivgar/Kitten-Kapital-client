@@ -33,7 +33,7 @@ function Profile() {
       setUser(foundUser.data);
       setIsFetching(false);
     } catch (error) {
-      console.log(error);
+      navigate("/error");
     }
   };
 

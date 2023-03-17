@@ -1,6 +1,6 @@
 import { AuthContext } from "../context/auth.context";
 import { useState, useContext, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { getCheckingAccountsService } from "../services/checking.services";
 import { getKittyAccountsService } from "../services/kitty.services";
@@ -44,10 +44,10 @@ function CreateTransferForm() {
       }
       setIsFetching(false);
     } catch (error) {
-      console.log(error);
+      navigate("/error");
     }
   };
-  // console.log(checkingAccountsList);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newTransfer = {
@@ -62,12 +62,7 @@ function CreateTransferForm() {
       await createTransactionService(newTransfer);
       navigate("/user");
     } catch (error) {
-      console.log(error);
-      // vamos a determinar el tipo de error que recibimos, y actuar diferente
-      console.log(error.response.status); // codigo de error enviado
-      console.log(error.response.data.errorMessage); // el mensaje de error que dio el fallo
       if (error.response.status === 400) {
-        // mostramos al usuario como solventar el problema
         setErrorMessage(error.response.data.errorMessage);
       } else {
         navigate("/error");
@@ -172,7 +167,9 @@ function CreateTransferForm() {
                 />
               </div>
               <div className="form-group mx-sm-4 pb-4 pt-4">
-                <button type="submit" className="btn btn-block ingresar">Transfer</button>
+                <button type="submit" className="btn btn-block ingresar">
+                  Transfer
+                </button>
               </div>
               {errorMessage !== "" ? (
                 <p class="date-of-birth-text">{errorMessage}</p>

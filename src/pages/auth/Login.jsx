@@ -48,7 +48,7 @@ function Login() {
             <div className="form-group text-center pt-3">
               <h1>Log In</h1>
             </div>
-            {/* <label>ID:</label> */}
+
             <div className="form-group mx-sm-4 pt-3">
               <input
                 className="form-control"
@@ -60,7 +60,6 @@ function Login() {
               />
             </div>
 
-            {/* <label>Password:</label> */}
             <div className="form-group mx-sm-4 pt-3">
               <input
                 className="form-control"

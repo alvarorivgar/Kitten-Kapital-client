@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useNavigate } from "react-router";
 import Peer from "simple-peer";
 import io from "socket.io-client";
 
 let socket;
 
 function VideoCall() {
+  const navigate = useNavigate();
   const [me, setMe] = useState("");
   const [stream, setStream] = useState();
   const [receivingCall, setReceivingCall] = useState(false);
@@ -25,21 +27,17 @@ function VideoCall() {
 
   const initialiseSocket = async () => {
     try {
-      console.log(process.env.REACT_APP_SOCKET_URL);
       socket = await io.connect(process.env.REACT_APP_SOCKET_URL);
-      console.log("socket", socket);
       const response = await navigator.mediaDevices.getUserMedia({
         video: true,
         audio: true,
       });
-      console.log(myVideo);
       myVideo.current.srcObject = response;
 
       setStream(response);
 
       const socketResponse = await socket.on("me");
       setMe(socketResponse.id);
-      console.log(socketResponse.id);
 
       socket.on("callUser", (data) => {
         setReceivingCall(true);
@@ -48,10 +46,9 @@ function VideoCall() {
         setCallerSignal(data.signal);
       });
     } catch (error) {
-      console.log(error);
+      navigate("/error");
     }
   };
-  console.log(me);
 
   const callUser = (id) => {
     const peer = new Peer({
@@ -145,10 +142,7 @@ function VideoCall() {
                     placeholder="Introduce your name"
                     onChange={(e) => setName(e.target.value)}
                   />
-                  <CopyToClipboard
-                    text={me}
-                    // style={{ marginBottom: "2rem" }}
-                  >
+                  <CopyToClipboard text={me}>
                     <div className="form-group mx-sm-4 pb-2 pt-3">
                       <button className="btn btn-block ingresar">
                         Copy ID
@@ -184,7 +178,6 @@ function VideoCall() {
                         Call
                       </button>
                     )}
-                    {/* {idToCall} */}
                   </div>
                 </div>
                 <div>

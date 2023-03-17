@@ -36,8 +36,6 @@ function CreateAccountForm() {
     try {
       const foundUser = await getUserService(userId);
 
-      console.log(foundUser);
-
       if (foundUser.data.role === "user") {
         await createCheckingAccountService(userId, newAccount);
       } else {
