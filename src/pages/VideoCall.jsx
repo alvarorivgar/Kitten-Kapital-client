@@ -25,7 +25,7 @@ function VideoCall() {
 
   const initialiseSocket = async () => {
     try {
-      socket = io.connect(process.env.REACT_APP_SOCKET_URL);
+      socket = await io.connect(process.env.REACT_APP_SOCKET_URL);
       const response = await navigator.mediaDevices.getUserMedia({
         video: true,
         audio: true,
